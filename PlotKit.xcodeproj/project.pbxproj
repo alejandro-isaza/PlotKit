@@ -76,6 +76,8 @@
 		610B1B441BB740B800B64973 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		618396B61BBA0A470071B3B1 /* Axis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Axis.swift; sourceTree = "<group>"; };
 		618B7E0C1BBEE6900011E8D3 /* Surge.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Surge.xcodeproj; path = Surge/Surge.xcodeproj; sourceTree = "<group>"; };
+		618B7E251BBEF35A0011E8D3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		618B7E261BBEF35A0011E8D3 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +123,8 @@
 		610B1B291BB740B800B64973 = {
 			isa = PBXGroup;
 			children = (
+				618B7E251BBEF35A0011E8D3 /* README.md */,
+				618B7E261BBEF35A0011E8D3 /* LICENSE */,
 				618B7E0C1BBEE6900011E8D3 /* Surge.xcodeproj */,
 				610B1B351BB740B800B64973 /* PlotKit */,
 				610B1B411BB740B800B64973 /* PlotKitTests */,
