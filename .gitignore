@@ -5,3 +5,5 @@
 *.pbxuser
 xcuserdata/
 *.xccheckout
+
+Carthage/
