@@ -16,12 +16,12 @@ internal class AxisView: NSView {
         }
     }
 
-    var xInterval = Interval(min: 0.0, max: 1.0) {
+    var xInterval = 0.0...1.0 {
         didSet {
             needsDisplay = true
         }
     }
-    var yInterval = Interval(min: 0.0, max: 1.0) {
+    var yInterval = 0.0...1.0 {
         didSet {
             needsDisplay = true
         }
@@ -79,8 +79,8 @@ internal class AxisView: NSView {
     // MARK: - Helper functions
 
     func drawVertical(rect: CGRect) {
-        let boundsXInterval = Interval(min: Double(bounds.minX + insets.left), max: Double(bounds.maxX - insets.right))
-        let boundsYInterval = Interval(min: Double(bounds.minY + insets.bottom), max: Double(bounds.maxY - insets.top))
+        let boundsXInterval = Double(bounds.minX + insets.left)...Double(bounds.maxX - insets.right)
+        let boundsYInterval = Double(bounds.minY + insets.bottom)...Double(bounds.maxY - insets.top)
 
         let context = NSGraphicsContext.currentContext()?.CGContext
         let width = CGFloat(axis.lineWidth)
@@ -90,15 +90,15 @@ internal class AxisView: NSView {
         let x: CGFloat
         switch axis.position {
         case .Start:
-            x = CGFloat(boundsXInterval.min) + width/2
+            x = CGFloat(boundsXInterval.start) + width/2
 
         case .End:
-            x = CGFloat(boundsXInterval.max) - width/2
+            x = CGFloat(boundsXInterval.end) - width/2
 
         case .Value(let position):
             x = CGFloat(mapValue(position, fromInterval: xInterval, toInterval: boundsXInterval))
         }
-        let axisRect = CGRectMake(x - width/2, CGFloat(boundsYInterval.min), width, height)
+        let axisRect = CGRectMake(x - width/2, CGFloat(boundsYInterval.start), width, height)
         CGContextFillRect(context, axisRect)
 
         // Draw tick marks
@@ -140,8 +140,8 @@ internal class AxisView: NSView {
     }
 
     func drawHorizontal(rect: CGRect) {
-        let boundsXInterval = Interval(min: Double(bounds.minX + insets.left), max: Double(bounds.maxX - insets.right))
-        let boundsYInterval = Interval(min: Double(bounds.minY + insets.bottom), max: Double(bounds.maxY - insets.top))
+        let boundsXInterval = Double(bounds.minX + insets.left)...Double(bounds.maxX - insets.right)
+        let boundsYInterval = Double(bounds.minY + insets.bottom)...Double(bounds.maxY - insets.top)
 
         let context = NSGraphicsContext.currentContext()?.CGContext
         let width = bounds.width - insets.left - insets.right
@@ -151,15 +151,15 @@ internal class AxisView: NSView {
         let y: CGFloat
         switch axis.position {
         case .Start:
-            y = CGFloat(boundsYInterval.min) + height/2
+            y = CGFloat(boundsYInterval.start) + height/2
 
         case .End:
-            y = CGFloat(boundsYInterval.max) - height/2
+            y = CGFloat(boundsYInterval.end) - height/2
 
         case .Value(let position):
             y = CGFloat(mapValue(position, fromInterval: yInterval, toInterval: boundsYInterval))
         }
-        let axisRect = CGRectMake(CGFloat(boundsXInterval.min), y - height/2, width, height)
+        let axisRect = CGRectMake(CGFloat(boundsXInterval.start), y - height/2, width, height)
         CGContextFillRect(context, axisRect)
 
         // Draw tick marks

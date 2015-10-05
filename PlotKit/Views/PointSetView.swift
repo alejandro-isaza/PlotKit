@@ -14,24 +14,24 @@ internal class PointSetView: NSView {
         }
     }
 
-    var xInterval: Interval
-    var yInterval: Interval
+    var xInterval: ClosedInterval<Double>
+    var yInterval: ClosedInterval<Double>
 
     init() {
         pointSet = PointSet()
-        xInterval = pointSet.xInterval
-        yInterval = pointSet.yInterval
+        xInterval = 0...1
+        yInterval = 0...1
         super.init(frame: NSRect(x: 0, y: 0, width: 512, height: 512))
     }
     
     init(pointSet: PointSet) {
         self.pointSet = pointSet
-        self.xInterval = pointSet.xInterval
-        self.yInterval = pointSet.yInterval
+        self.xInterval = pointSet.xInterval ?? 0...1
+        self.yInterval = pointSet.yInterval ?? 0...1
         super.init(frame: NSRect(x: 0, y: 0, width: 512, height: 512))
     }
 
-    init(pointSet: PointSet, xInterval: Interval, yInterval: Interval) {
+    init(pointSet: PointSet, xInterval: ClosedInterval<Double>, yInterval: ClosedInterval<Double>) {
         self.pointSet = pointSet
         self.xInterval = xInterval
         self.yInterval = yInterval
@@ -129,8 +129,8 @@ internal class PointSetView: NSView {
     // MARK: - Helper functions
 
     func convertToView(x x: Double, y: Double) -> CGPoint {
-        let boundsXInterval = Interval(min: Double(bounds.minX), max: Double(bounds.maxX))
-        let boundsYInterval = Interval(min: Double(bounds.minY), max: Double(bounds.maxY))
+        let boundsXInterval = Double(bounds.minX)...Double(bounds.maxX)
+        let boundsYInterval = Double(bounds.minY)...Double(bounds.maxY)
         return CGPoint(
             x: mapValue(x, fromInterval: xInterval, toInterval: boundsXInterval),
             y: mapValue(y, fromInterval: yInterval, toInterval: boundsYInterval))
@@ -141,8 +141,8 @@ internal class PointSetView: NSView {
 
     required init?(coder: NSCoder) {
         pointSet = PointSet()
-        xInterval = Interval(min: 0.0, max: 0.0)
-        yInterval = Interval(min: 0.0, max: 0.0)
+        xInterval = 0.0...0.0
+        yInterval = 0.0...0.0
         super.init(coder: coder)
     }
 }

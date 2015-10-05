@@ -19,33 +19,45 @@ public class PlotView : NSView {
     public var backgroundColor: NSColor = NSColor.whiteColor()
 
     /// If not `nil` the x values are limited to this interval, otherwise the x interval will fit all values
-    public var fixedXInterval: Interval? {
+    public var fixedXInterval: ClosedInterval<Double>? {
         didSet {
             updateIntervals()
         }
     }
 
     /// If not `nil` the y values are limited to this interval, otherwise the y interval will fit all values
-    public var fixedYInterval: Interval? {
+    public var fixedYInterval: ClosedInterval<Double>? {
         didSet {
             updateIntervals()
         }
     }
 
     /// The x-range that fits all the point sets in the plot
-    public var fittingXInterval: Interval {
-        var interval = Interval.empty
+    public var fittingXInterval: ClosedInterval<Double>? {
+        guard let first = pointSetViews.first?.pointSet.xInterval else {
+            return nil
+        }
+
+        var interval = first
         for view in pointSetViews {
-            interval = join(interval, view.pointSet.xInterval)
+            if let viewInterval = view.pointSet.xInterval {
+                interval = join(interval, viewInterval)
+            }
         }
         return interval
     }
 
     /// The y-range that fits all the point sets in the plot
-    public var fittingYInterval: Interval {
-        var interval = Interval.empty
+    public var fittingYInterval: ClosedInterval<Double>? {
+        guard let first = pointSetViews.first?.pointSet.yInterval else {
+            return nil
+        }
+
+        var interval = first
         for view in pointSetViews {
-            interval = join(interval, view.pointSet.yInterval)
+            if let viewInterval = view.pointSet.yInterval {
+                interval = join(interval, viewInterval)
+            }
         }
         return interval
     }
@@ -93,18 +105,18 @@ public class PlotView : NSView {
 
     // MARK: - Helper functions
 
-    var xInterval: Interval {
+    var xInterval: ClosedInterval<Double> {
         if let interval = fixedXInterval {
             return interval
         }
-        return fittingXInterval
+        return fittingXInterval ?? 0...1
     }
 
-    var yInterval: Interval {
+    var yInterval: ClosedInterval<Double> {
         if let interval = fixedYInterval {
             return interval
         }
-        return fittingYInterval
+        return fittingYInterval ?? 0...1
     }
 
     func updateIntervals() {

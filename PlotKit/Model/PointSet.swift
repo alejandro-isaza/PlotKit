@@ -25,11 +25,11 @@ public class PointSet {
     public var color = NSColor.redColor()
     public var pointType = PointType.None
 
-    public var xInterval: Interval {
-        return Interval(values: points.map{ $0.x })
+    public var xInterval: ClosedInterval<Double>? {
+        return ClosedInterval<Double>(values: points.map{ $0.x })
     }
-    public var yInterval: Interval {
-        return Interval(values: points.map{ $0.y })
+    public var yInterval: ClosedInterval<Double>? {
+        return ClosedInterval<Double>(values: points.map{ $0.y })
     }
 
     public init() {

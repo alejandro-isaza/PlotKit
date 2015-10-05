@@ -29,17 +29,17 @@ public struct Axis {
         /// A specific list of ticks
         case List(ticks: [TickMark])
 
-        public func ticksInInterval(interval: Interval) -> [TickMark] {
+        public func ticksInInterval(interval: ClosedInterval<Double>) -> [TickMark] {
             switch self {
             case .Fit(let count):
                 return (0...count).map{
-                    TickMark(interval.min + Double($0) * (interval.max - interval.min) / Double(count))
+                    TickMark(interval.start + Double($0) * (interval.end - interval.start) / Double(count))
                 }
 
             case .Space(let distance):
-                var v = round(interval.min / distance) * distance
+                var v = round(interval.start / distance) * distance
                 var ticks = [TickMark]()
-                while v <= interval.max {
+                while v <= interval.end {
                     ticks.append(TickMark(v))
                     v += distance
                 }
