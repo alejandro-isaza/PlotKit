@@ -102,6 +102,13 @@ public class PlotView : NSView {
         updateIntervals()
     }
 
+    public func clear() {
+        for view in pointSetViews {
+            view.removeFromSuperview()
+        }
+        pointSetViews.removeAll()
+    }
+
 
     // MARK: - Helper functions
 
