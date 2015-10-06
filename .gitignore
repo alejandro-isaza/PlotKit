@@ -5,5 +5,7 @@
 *.pbxuser
 xcuserdata/
 *.xccheckout
+*.xctimeline
 
+# Carthage
 Carthage/
