@@ -3,9 +3,10 @@
 *.mode1v3
 *.mode2v3
 *.pbxuser
-xcuserdata/
 *.xccheckout
 *.xctimeline
+xcuserdata/
 
-# Carthage
-Carthage/
+# Dependecy management
+Pods
+Carthage

@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "50D5798637F452545D39CC8E6CCEA3F8746CA8A9",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "50D5798637F452545D39CC8E6CCEA3F8746CA8A9" : 0,
+    "9F65A476A58933AE6B22EAE730A194955F98FC66" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "ACB911FC-C316-45DD-ADCC-A791AFD2AC89",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "50D5798637F452545D39CC8E6CCEA3F8746CA8A9" : "PlotKit\/",
+    "9F65A476A58933AE6B22EAE730A194955F98FC66" : "PlotKit\/Surge\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "PlotKit",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "PlotKit.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:aleph7\/PlotKit.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "50D5798637F452545D39CC8E6CCEA3F8746CA8A9"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/aleph7\/Surge.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9F65A476A58933AE6B22EAE730A194955F98FC66"
+    }
+  ]
+}

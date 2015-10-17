@@ -5,7 +5,7 @@
 // file LICENSE at the root of the source code distribution tree.
 
 import Foundation
-import Surge
+import Upsurge
 
 public struct Axis {
     public enum Orientation {

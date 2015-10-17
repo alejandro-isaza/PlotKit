@@ -1,5 +1,5 @@
 import PlotKit
-import Surge
+import Upsurge
 import XCPlayground
 
 
@@ -8,7 +8,7 @@ import XCPlayground
 let π = M_PI
 let count = 1024
 let t = (0..<count).map{ 2*π * Double($0) / Double(count-1) }
-let y = sin(t)
+let y = sin(RealArray(t))
 
 
 //: ## Plotting

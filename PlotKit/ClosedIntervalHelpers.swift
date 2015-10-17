@@ -6,26 +6,6 @@
 
 import Foundation
 
-extension ClosedInterval {
-    /// Extract the minimum and maximum values from an array
-    public init?(values: [Bound]) {
-        guard let first = values.first else {
-            return nil
-        }
-        var start: Bound = first
-        var end: Bound = first
-        for v in values {
-            if v < start {
-                start = v
-            }
-            if v > end {
-                end = v
-            }
-        }
-        self.init(start, end)
-    }
-}
-
 public func join<T>(lhs: ClosedInterval<T>, _ rhs: ClosedInterval<T>) -> ClosedInterval<T> {
     return min(lhs.start, rhs.start)...max(lhs.end, rhs.end)
 }

@@ -14,9 +14,10 @@
 		6108DFFC1BB9D9F9004A4337 /* TickMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6108DFFB1BB9D9F9004A4337 /* TickMark.swift */; settings = {ASSET_TAGS = (); }; };
 		610B1B371BB740B800B64973 /* PlotKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 610B1B361BB740B800B64973 /* PlotKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		610B1B3E1BB740B800B64973 /* PlotKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 610B1B331BB740B800B64973 /* PlotKit.framework */; settings = {ASSET_TAGS = (); }; };
+		61580FB01BD2F99A008D9DDA /* ClosedIntervalHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61580FAF1BD2F99A008D9DDA /* ClosedIntervalHelpers.swift */; settings = {ASSET_TAGS = (); }; };
 		618396B71BBA0A470071B3B1 /* Axis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618396B61BBA0A470071B3B1 /* Axis.swift */; settings = {ASSET_TAGS = (); }; };
-		618B7E4D1BC0700A0011E8D3 /* Surge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 618B7E4C1BC0700A0011E8D3 /* Surge.framework */; settings = {ASSET_TAGS = (); }; };
 		61BBAF401BC1F5F500A03FD0 /* ClosedInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BBAF3F1BC1F5F500A03FD0 /* ClosedInterval.swift */; settings = {ASSET_TAGS = (); }; };
+		F7B59470E2DC42061152B17B /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26D34F1F38C1DBA9B5FE9ACB /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +31,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		26D34F1F38C1DBA9B5FE9ACB /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2E142E2ED790639F9BEB7C84 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		6108DFF01BB9D9E8004A4337 /* PointSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointSet.swift; sourceTree = "<group>"; };
 		6108DFF21BB9D9E8004A4337 /* AxisView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AxisView.swift; sourceTree = "<group>"; };
 		6108DFF31BB9D9E8004A4337 /* PlotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotView.swift; sourceTree = "<group>"; };
@@ -40,11 +43,12 @@
 		610B1B381BB740B800B64973 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		610B1B3D1BB740B800B64973 /* PlotKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlotKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		610B1B441BB740B800B64973 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		61580FAF1BD2F99A008D9DDA /* ClosedIntervalHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosedIntervalHelpers.swift; sourceTree = "<group>"; };
 		618396B61BBA0A470071B3B1 /* Axis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Axis.swift; sourceTree = "<group>"; };
 		618B7E251BBEF35A0011E8D3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		618B7E261BBEF35A0011E8D3 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		618B7E4C1BC0700A0011E8D3 /* Surge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Surge.framework; path = Carthage/Build/Mac/Surge.framework; sourceTree = "<group>"; };
 		61BBAF3F1BC1F5F500A03FD0 /* ClosedInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosedInterval.swift; sourceTree = "<group>"; };
+		978A66186D388A63CB68E0C6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				618B7E4D1BC0700A0011E8D3 /* Surge.framework in Frameworks */,
+				F7B59470E2DC42061152B17B /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -67,6 +71,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C3938A8E9BC0AF1CDA85FF9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2E142E2ED790639F9BEB7C84 /* Pods.debug.xcconfig */,
+				978A66186D388A63CB68E0C6 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		6108DFED1BB9D9E8004A4337 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -96,6 +109,8 @@
 				610B1B411BB740B800B64973 /* PlotKitTests */,
 				618B7E4B1BC06FC40011E8D3 /* Dependencies */,
 				610B1B341BB740B800B64973 /* Products */,
+				1C3938A8E9BC0AF1CDA85FF9 /* Pods */,
+				AFBA798201BAB213AA48A6BA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -115,7 +130,7 @@
 				610B1B361BB740B800B64973 /* PlotKit.h */,
 				6108DFED1BB9D9E8004A4337 /* Model */,
 				6108DFF11BB9D9E8004A4337 /* Views */,
-				61BBAF3E1BC1F5D600A03FD0 /* Extensions */,
+				61580FAF1BD2F99A008D9DDA /* ClosedIntervalHelpers.swift */,
 			);
 			path = PlotKit;
 			sourceTree = "<group>";
@@ -128,20 +143,12 @@
 			path = PlotKitTests;
 			sourceTree = "<group>";
 		};
-		618B7E4B1BC06FC40011E8D3 /* Dependencies */ = {
+		AFBA798201BAB213AA48A6BA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				618B7E4C1BC0700A0011E8D3 /* Surge.framework */,
+				26D34F1F38C1DBA9B5FE9ACB /* Pods.framework */,
 			);
-			name = Dependencies;
-			sourceTree = "<group>";
-		};
-		61BBAF3E1BC1F5D600A03FD0 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				61BBAF3F1BC1F5F500A03FD0 /* ClosedInterval.swift */,
-			);
-			path = Extensions;
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,10 +169,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 610B1B471BB740B800B64973 /* Build configuration list for PBXNativeTarget "PlotKit" */;
 			buildPhases = (
+				B262FF0E6FDC94B5E71AB552 /* Check Pods Manifest.lock */,
 				610B1B2E1BB740B800B64973 /* Sources */,
 				610B1B2F1BB740B800B64973 /* Frameworks */,
 				610B1B301BB740B800B64973 /* Headers */,
 				610B1B311BB740B800B64973 /* Resources */,
+				54435DC50D89575AD5128AD7 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -247,6 +256,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		54435DC50D89575AD5128AD7 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B262FF0E6FDC94B5E71AB552 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		610B1B2E1BB740B800B64973 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -257,7 +299,7 @@
 				618396B71BBA0A470071B3B1 /* Axis.swift in Sources */,
 				6108DFF91BB9D9E8004A4337 /* PlotView.swift in Sources */,
 				6108DFF71BB9D9E8004A4337 /* PointSet.swift in Sources */,
-				61BBAF401BC1F5F500A03FD0 /* ClosedInterval.swift in Sources */,
+				61580FB01BD2F99A008D9DDA /* ClosedIntervalHelpers.swift in Sources */,
 				6108DFFC1BB9D9F9004A4337 /* TickMark.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -368,6 +410,7 @@
 		};
 		610B1B481BB740B800B64973 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E142E2ED790639F9BEB7C84 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -389,6 +432,7 @@
 		};
 		610B1B491BB740B800B64973 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 978A66186D388A63CB68E0C6 /* Pods.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;

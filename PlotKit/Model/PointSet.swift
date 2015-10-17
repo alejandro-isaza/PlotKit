@@ -5,8 +5,7 @@
 // file LICENSE at the root of the source code distribution tree.
 
 import Foundation
-
-import Surge
+import Upsurge
 
 public enum PointType {
     case None
@@ -16,7 +15,7 @@ public enum PointType {
     case FilledSquare(side: Double)
 }
 
-public typealias Point = Surge.Point<Double>
+public typealias Point = Upsurge.Point<Double>
 
 public class PointSet {
     public var points: [Point]
@@ -25,11 +24,19 @@ public class PointSet {
     public var color = NSColor.redColor()
     public var pointType = PointType.None
 
-    public var xInterval: ClosedInterval<Double>? {
-        return ClosedInterval<Double>(values: points.map{ $0.x })
+    public var xInterval: ClosedInterval<Double> {
+        let xValues = points.map{ $0.x }
+        if xValues.isEmpty {
+            return 0...0
+        }
+        return xValues.minElement()!...xValues.maxElement()!
     }
-    public var yInterval: ClosedInterval<Double>? {
-        return ClosedInterval<Double>(values: points.map{ $0.y })
+    public var yInterval: ClosedInterval<Double> {
+        let yValues = points.map{ $0.y }
+        if yValues.isEmpty {
+            return 0...0
+        }
+        return yValues.minElement()!...yValues.maxElement()!
     }
 
     public init() {

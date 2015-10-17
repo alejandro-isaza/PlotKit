@@ -5,7 +5,7 @@
 // file LICENSE at the root of the source code distribution tree.
 
 import Foundation
-import Surge
+import Upsurge
 
 public class PlotView : NSView {
     struct Constants {
@@ -33,33 +33,29 @@ public class PlotView : NSView {
     }
 
     /// The x-range that fits all the point sets in the plot
-    public var fittingXInterval: ClosedInterval<Double>? {
-        guard let first = pointSetViews.first?.pointSet.xInterval else {
-            return nil
-        }
-
-        var interval = first
+    public var fittingXInterval: ClosedInterval<Double> {
+        var interval: ClosedInterval<Double>?
         for view in pointSetViews {
-            if let viewInterval = view.pointSet.xInterval {
-                interval = join(interval, viewInterval)
+            if let int = interval {
+                interval = join(int, view.pointSet.xInterval)
+            } else {
+                interval = view.pointSet.xInterval
             }
         }
-        return interval
+        return interval ?? 0.0...1.0
     }
 
     /// The y-range that fits all the point sets in the plot
-    public var fittingYInterval: ClosedInterval<Double>? {
-        guard let first = pointSetViews.first?.pointSet.yInterval else {
-            return nil
-        }
-
-        var interval = first
+    public var fittingYInterval: ClosedInterval<Double> {
+        var interval: ClosedInterval<Double>?
         for view in pointSetViews {
-            if let viewInterval = view.pointSet.yInterval {
-                interval = join(interval, viewInterval)
+            if let int = interval {
+                interval = join(int, view.pointSet.yInterval)
+            } else {
+                interval = view.pointSet.yInterval
             }
         }
-        return interval
+        return interval ?? 0.0...1.0
     }
 
     public func addAxis(axis: Axis) {
