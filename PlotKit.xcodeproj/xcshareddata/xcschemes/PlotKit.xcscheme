@@ -38,6 +38,16 @@
                ReferencedContainer = "container:PlotKit.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "61208F341BDBF780002F180E"
+               BuildableName = "PlotKitUITests.xctest"
+               BlueprintName = "PlotKitUITests"
+               ReferencedContainer = "container:PlotKit.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference

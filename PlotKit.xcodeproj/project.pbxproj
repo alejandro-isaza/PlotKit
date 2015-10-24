@@ -16,12 +16,24 @@
 		610B1B3E1BB740B800B64973 /* PlotKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 610B1B331BB740B800B64973 /* PlotKit.framework */; };
 		61208F301BDBEE1C002F180E /* PlotHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61208F2F1BDBEE1C002F180E /* PlotHelpers.swift */; };
 		61580FB01BD2F99A008D9DDA /* ClosedIntervalHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61580FAF1BD2F99A008D9DDA /* ClosedIntervalHelpers.swift */; };
+		616B83961BDBF85E00B28545 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616B83951BDBF85E00B28545 /* AppDelegate.swift */; };
+		616B83981BDBF85E00B28545 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616B83971BDBF85E00B28545 /* ViewController.swift */; };
+		616B839A1BDBF85E00B28545 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 616B83991BDBF85E00B28545 /* Assets.xcassets */; };
+		616B839D1BDBF85E00B28545 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 616B839B1BDBF85E00B28545 /* Main.storyboard */; };
+		616B83A61BDBFE0B00B28545 /* PlotKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 610B1B331BB740B800B64973 /* PlotKit.framework */; };
 		618396B71BBA0A470071B3B1 /* Axis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618396B61BBA0A470071B3B1 /* Axis.swift */; };
 		7455A9E277FE43FCF1EF2BAA /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26D34F1F38C1DBA9B5FE9ACB /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		610B1B3F1BB740B800B64973 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 610B1B2A1BB740B800B64973 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 610B1B321BB740B800B64973;
+			remoteInfo = PlotKit;
+		};
+		616B83A41BDBFE0400B28545 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 610B1B2A1BB740B800B64973 /* Project object */;
 			proxyType = 1;
@@ -45,6 +57,12 @@
 		610B1B441BB740B800B64973 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61208F2F1BDBEE1C002F180E /* PlotHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotHelpers.swift; sourceTree = "<group>"; };
 		61580FAF1BD2F99A008D9DDA /* ClosedIntervalHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosedIntervalHelpers.swift; sourceTree = "<group>"; };
+		616B83931BDBF85E00B28545 /* PlotKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlotKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		616B83951BDBF85E00B28545 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		616B83971BDBF85E00B28545 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		616B83991BDBF85E00B28545 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		616B839C1BDBF85E00B28545 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		616B839E1BDBF85E00B28545 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		618396B61BBA0A470071B3B1 /* Axis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Axis.swift; sourceTree = "<group>"; };
 		618B7E251BBEF35A0011E8D3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		618B7E261BBEF35A0011E8D3 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -65,6 +83,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				610B1B3E1BB740B800B64973 /* PlotKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		616B83901BDBF85E00B28545 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				616B83A61BDBFE0B00B28545 /* PlotKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,6 +133,7 @@
 				618B7E261BBEF35A0011E8D3 /* LICENSE */,
 				610B1B351BB740B800B64973 /* PlotKit */,
 				610B1B411BB740B800B64973 /* PlotKitTests */,
+				616B83941BDBF85E00B28545 /* PlotKitDemo */,
 				610B1B341BB740B800B64973 /* Products */,
 				1C3938A8E9BC0AF1CDA85FF9 /* Pods */,
 				AFBA798201BAB213AA48A6BA /* Frameworks */,
@@ -118,6 +145,7 @@
 			children = (
 				610B1B331BB740B800B64973 /* PlotKit.framework */,
 				610B1B3D1BB740B800B64973 /* PlotKitTests.xctest */,
+				616B83931BDBF85E00B28545 /* PlotKitDemo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -141,6 +169,18 @@
 				610B1B441BB740B800B64973 /* Info.plist */,
 			);
 			path = PlotKitTests;
+			sourceTree = "<group>";
+		};
+		616B83941BDBF85E00B28545 /* PlotKitDemo */ = {
+			isa = PBXGroup;
+			children = (
+				616B83951BDBF85E00B28545 /* AppDelegate.swift */,
+				616B83971BDBF85E00B28545 /* ViewController.swift */,
+				616B83991BDBF85E00B28545 /* Assets.xcassets */,
+				616B839B1BDBF85E00B28545 /* Main.storyboard */,
+				616B839E1BDBF85E00B28545 /* Info.plist */,
+			);
+			path = PlotKitDemo;
 			sourceTree = "<group>";
 		};
 		AFBA798201BAB213AA48A6BA /* Frameworks */ = {
@@ -203,13 +243,31 @@
 			productReference = 610B1B3D1BB740B800B64973 /* PlotKitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		616B83921BDBF85E00B28545 /* PlotKitDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 616B83A11BDBF85E00B28545 /* Build configuration list for PBXNativeTarget "PlotKitDemo" */;
+			buildPhases = (
+				616B838F1BDBF85E00B28545 /* Sources */,
+				616B83901BDBF85E00B28545 /* Frameworks */,
+				616B83911BDBF85E00B28545 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				616B83A51BDBFE0400B28545 /* PBXTargetDependency */,
+			);
+			name = PlotKitDemo;
+			productName = PlotKitDemo;
+			productReference = 616B83931BDBF85E00B28545 /* PlotKitDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		610B1B2A1BB740B800B64973 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Venture Media Labs";
 				TargetAttributes = {
@@ -219,6 +277,9 @@
 					610B1B3C1BB740B800B64973 = {
 						CreatedOnToolsVersion = 7.0;
 					};
+					616B83921BDBF85E00B28545 = {
+						CreatedOnToolsVersion = 7.1;
+					};
 				};
 			};
 			buildConfigurationList = 610B1B2D1BB740B800B64973 /* Build configuration list for PBXProject "PlotKit" */;
@@ -227,6 +288,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				Base,
 			);
 			mainGroup = 610B1B291BB740B800B64973;
 			productRefGroup = 610B1B341BB740B800B64973 /* Products */;
@@ -235,6 +297,7 @@
 			targets = (
 				610B1B321BB740B800B64973 /* PlotKit */,
 				610B1B3C1BB740B800B64973 /* PlotKitTests */,
+				616B83921BDBF85E00B28545 /* PlotKitDemo */,
 			);
 		};
 /* End PBXProject section */
@@ -251,6 +314,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		616B83911BDBF85E00B28545 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				616B839A1BDBF85E00B28545 /* Assets.xcassets in Resources */,
+				616B839D1BDBF85E00B28545 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +384,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		616B838F1BDBF85E00B28545 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				616B83981BDBF85E00B28545 /* ViewController.swift in Sources */,
+				616B83961BDBF85E00B28545 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -320,7 +401,23 @@
 			target = 610B1B321BB740B800B64973 /* PlotKit */;
 			targetProxy = 610B1B3F1BB740B800B64973 /* PBXContainerItemProxy */;
 		};
+		616B83A51BDBFE0400B28545 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 610B1B321BB740B800B64973 /* PlotKit */;
+			targetProxy = 616B83A41BDBFE0400B28545 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		616B839B1BDBF85E00B28545 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				616B839C1BDBF85E00B28545 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		610B1B451BB740B800B64973 /* Debug */ = {
@@ -474,6 +571,34 @@
 			};
 			name = Release;
 		};
+		616B839F1BDBF85E00B28545 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = PlotKitDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.venturemedia.PlotKitDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		616B83A01BDBF85E00B28545 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = PlotKitDemo/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				PRODUCT_BUNDLE_IDENTIFIER = com.venturemedia.PlotKitDemo;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -503,6 +628,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		616B83A11BDBF85E00B28545 /* Build configuration list for PBXNativeTarget "PlotKitDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				616B839F1BDBF85E00B28545 /* Debug */,
+				616B83A01BDBF85E00B28545 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
