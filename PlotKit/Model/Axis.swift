@@ -21,22 +21,27 @@ public struct Axis {
 
     public enum Ticks {
         /// A specific number of ticks evenly spaced
-        case Fit(count: Int)
+        case Fit(Int)
 
         /// Ticks with a specific distance between them
-        case Space(distance: Double)
+        case Distance(Double)
 
         /// A specific list of ticks
-        case List(ticks: [TickMark])
+        case List([TickMark])
 
         public func ticksInInterval(interval: ClosedInterval<Double>) -> [TickMark] {
             switch self {
             case .Fit(let count):
-                return (0...count).map{
-                    TickMark(interval.start + Double($0) * (interval.end - interval.start) / Double(count))
+                let distance = (interval.end - interval.start) / Double(count)
+                var v = round(interval.start / distance) * distance
+                var ticks = [TickMark]()
+                while v <= interval.end {
+                    ticks.append(TickMark(v))
+                    v += distance
                 }
+                return ticks
 
-            case .Space(let distance):
+            case .Distance(let distance):
                 var v = round(interval.start / distance) * distance
                 var ticks = [TickMark]()
                 while v <= interval.end {
@@ -54,7 +59,7 @@ public struct Axis {
     public var orientation: Orientation
     public var position = Position.Start
     public var lineWidth = CGFloat(1.0)
-    public var ticks = Ticks.Fit(count: 10)
+    public var ticks = Ticks.Fit(5)
     public var color = NSColor.blackColor()
     public var labelAttributes: [String: AnyObject] = [NSFontAttributeName: NSFont(name: "Avenir Next", size: 10)!]
 

@@ -7,17 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		6108DFF71BB9D9E8004A4337 /* PointSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6108DFF01BB9D9E8004A4337 /* PointSet.swift */; settings = {ASSET_TAGS = (); }; };
-		6108DFF81BB9D9E8004A4337 /* AxisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6108DFF21BB9D9E8004A4337 /* AxisView.swift */; settings = {ASSET_TAGS = (); }; };
-		6108DFF91BB9D9E8004A4337 /* PlotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6108DFF31BB9D9E8004A4337 /* PlotView.swift */; settings = {ASSET_TAGS = (); }; };
-		6108DFFA1BB9D9E8004A4337 /* PointSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6108DFF41BB9D9E8004A4337 /* PointSetView.swift */; settings = {ASSET_TAGS = (); }; };
-		6108DFFC1BB9D9F9004A4337 /* TickMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6108DFFB1BB9D9F9004A4337 /* TickMark.swift */; settings = {ASSET_TAGS = (); }; };
+		6108DFF71BB9D9E8004A4337 /* PointSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6108DFF01BB9D9E8004A4337 /* PointSet.swift */; };
+		6108DFF81BB9D9E8004A4337 /* AxisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6108DFF21BB9D9E8004A4337 /* AxisView.swift */; };
+		6108DFF91BB9D9E8004A4337 /* PlotView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6108DFF31BB9D9E8004A4337 /* PlotView.swift */; };
+		6108DFFA1BB9D9E8004A4337 /* PointSetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6108DFF41BB9D9E8004A4337 /* PointSetView.swift */; };
+		6108DFFC1BB9D9F9004A4337 /* TickMark.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6108DFFB1BB9D9F9004A4337 /* TickMark.swift */; };
 		610B1B371BB740B800B64973 /* PlotKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 610B1B361BB740B800B64973 /* PlotKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		610B1B3E1BB740B800B64973 /* PlotKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 610B1B331BB740B800B64973 /* PlotKit.framework */; settings = {ASSET_TAGS = (); }; };
-		61580FB01BD2F99A008D9DDA /* ClosedIntervalHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61580FAF1BD2F99A008D9DDA /* ClosedIntervalHelpers.swift */; settings = {ASSET_TAGS = (); }; };
-		618396B71BBA0A470071B3B1 /* Axis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618396B61BBA0A470071B3B1 /* Axis.swift */; settings = {ASSET_TAGS = (); }; };
-		61BBAF401BC1F5F500A03FD0 /* ClosedInterval.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61BBAF3F1BC1F5F500A03FD0 /* ClosedInterval.swift */; settings = {ASSET_TAGS = (); }; };
-		F7B59470E2DC42061152B17B /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26D34F1F38C1DBA9B5FE9ACB /* Pods.framework */; };
+		610B1B3E1BB740B800B64973 /* PlotKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 610B1B331BB740B800B64973 /* PlotKit.framework */; };
+		61208F301BDBEE1C002F180E /* PlotHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61208F2F1BDBEE1C002F180E /* PlotHelpers.swift */; };
+		61580FB01BD2F99A008D9DDA /* ClosedIntervalHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61580FAF1BD2F99A008D9DDA /* ClosedIntervalHelpers.swift */; };
+		618396B71BBA0A470071B3B1 /* Axis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618396B61BBA0A470071B3B1 /* Axis.swift */; };
+		7455A9E277FE43FCF1EF2BAA /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26D34F1F38C1DBA9B5FE9ACB /* Pods.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,11 +43,11 @@
 		610B1B381BB740B800B64973 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		610B1B3D1BB740B800B64973 /* PlotKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PlotKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		610B1B441BB740B800B64973 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		61208F2F1BDBEE1C002F180E /* PlotHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotHelpers.swift; sourceTree = "<group>"; };
 		61580FAF1BD2F99A008D9DDA /* ClosedIntervalHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosedIntervalHelpers.swift; sourceTree = "<group>"; };
 		618396B61BBA0A470071B3B1 /* Axis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Axis.swift; sourceTree = "<group>"; };
 		618B7E251BBEF35A0011E8D3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		618B7E261BBEF35A0011E8D3 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		61BBAF3F1BC1F5F500A03FD0 /* ClosedInterval.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosedInterval.swift; sourceTree = "<group>"; };
 		978A66186D388A63CB68E0C6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -56,7 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F7B59470E2DC42061152B17B /* Pods.framework in Frameworks */,
+				7455A9E277FE43FCF1EF2BAA /* Pods.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -107,7 +107,6 @@
 				618B7E261BBEF35A0011E8D3 /* LICENSE */,
 				610B1B351BB740B800B64973 /* PlotKit */,
 				610B1B411BB740B800B64973 /* PlotKitTests */,
-				618B7E4B1BC06FC40011E8D3 /* Dependencies */,
 				610B1B341BB740B800B64973 /* Products */,
 				1C3938A8E9BC0AF1CDA85FF9 /* Pods */,
 				AFBA798201BAB213AA48A6BA /* Frameworks */,
@@ -131,6 +130,7 @@
 				6108DFED1BB9D9E8004A4337 /* Model */,
 				6108DFF11BB9D9E8004A4337 /* Views */,
 				61580FAF1BD2F99A008D9DDA /* ClosedIntervalHelpers.swift */,
+				61208F2F1BDBEE1C002F180E /* PlotHelpers.swift */,
 			);
 			path = PlotKit;
 			sourceTree = "<group>";
@@ -300,6 +300,7 @@
 				6108DFF91BB9D9E8004A4337 /* PlotView.swift in Sources */,
 				6108DFF71BB9D9E8004A4337 /* PointSet.swift in Sources */,
 				61580FB01BD2F99A008D9DDA /* ClosedIntervalHelpers.swift in Sources */,
+				61208F301BDBEE1C002F180E /* PlotHelpers.swift in Sources */,
 				6108DFFC1BB9D9F9004A4337 /* TickMark.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

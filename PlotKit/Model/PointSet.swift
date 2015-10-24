@@ -15,7 +15,15 @@ public enum PointType {
     case FilledSquare(side: Double)
 }
 
-public typealias Point = Upsurge.Point<Double>
+public struct Point {
+    public var x: Double
+    public var y: Double
+
+    public init(x: Double, y: Double) {
+        self.x = x
+        self.y = y
+    }
+}
 
 public class PointSet {
     public var points: [Point]
@@ -42,11 +50,10 @@ public class PointSet {
     public init() {
         self.points = []
     }
-    public init(points: [Point]) {
-        self.points = points
+    public init<T: SequenceType where T.Generator.Element == Point>(points: T) {
+        self.points = [Point](points)
     }
-    public init(values: [Double]) {
-        var i = 0
-        self.points = values.map{ Point(x: Double(i++), y: $0) }
+    public init<T: SequenceType where T.Generator.Element == Double>(values: T) {
+        self.points = values.enumerate().map{ Point(x: Double($0.0), y: $0.1) }
     }
 }
