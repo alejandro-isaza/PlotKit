@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0700"
+   LastUpgradeVersion = "0710"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,9 +14,23 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "610B1B321BB740B800B64973"
-               BuildableName = "PlotKit.framework"
-               BlueprintName = "PlotKit"
+               BlueprintIdentifier = "616B83921BDBF85E00B28545"
+               BuildableName = "PlotKitDemo.app"
+               BlueprintName = "PlotKitDemo"
+               ReferencedContainer = "container:PlotKit.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "610B1B3C1BB740B800B64973"
+               BuildableName = "PlotKitTests.xctest"
+               BlueprintName = "PlotKitTests"
                ReferencedContainer = "container:PlotKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -42,9 +56,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "610B1B321BB740B800B64973"
-            BuildableName = "PlotKit.framework"
-            BlueprintName = "PlotKit"
+            BlueprintIdentifier = "616B83921BDBF85E00B28545"
+            BuildableName = "PlotKitDemo.app"
+            BlueprintName = "PlotKitDemo"
             ReferencedContainer = "container:PlotKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -61,15 +75,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "610B1B321BB740B800B64973"
-            BuildableName = "PlotKit.framework"
-            BlueprintName = "PlotKit"
+            BlueprintIdentifier = "616B83921BDBF85E00B28545"
+            BuildableName = "PlotKitDemo.app"
+            BlueprintName = "PlotKitDemo"
             ReferencedContainer = "container:PlotKit.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -79,15 +94,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "610B1B321BB740B800B64973"
-            BuildableName = "PlotKit.framework"
-            BlueprintName = "PlotKit"
+            BlueprintIdentifier = "616B83921BDBF85E00B28545"
+            BuildableName = "PlotKitDemo.app"
+            BlueprintName = "PlotKitDemo"
             ReferencedContainer = "container:PlotKit.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

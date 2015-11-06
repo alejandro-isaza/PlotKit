@@ -22,7 +22,7 @@
 		616B839D1BDBF85E00B28545 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 616B839B1BDBF85E00B28545 /* Main.storyboard */; };
 		616B83A61BDBFE0B00B28545 /* PlotKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 610B1B331BB740B800B64973 /* PlotKit.framework */; };
 		618396B71BBA0A470071B3B1 /* Axis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618396B61BBA0A470071B3B1 /* Axis.swift */; };
-		7455A9E277FE43FCF1EF2BAA /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26D34F1F38C1DBA9B5FE9ACB /* Pods.framework */; };
+		61CE4C011BED8741000E0D34 /* Upsurge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61CE4BFB1BED8741000E0D34 /* Upsurge.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,8 +43,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		26D34F1F38C1DBA9B5FE9ACB /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2E142E2ED790639F9BEB7C84 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		6108DFF01BB9D9E8004A4337 /* PointSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointSet.swift; sourceTree = "<group>"; };
 		6108DFF21BB9D9E8004A4337 /* AxisView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AxisView.swift; sourceTree = "<group>"; };
 		6108DFF31BB9D9E8004A4337 /* PlotView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotView.swift; sourceTree = "<group>"; };
@@ -66,7 +64,12 @@
 		618396B61BBA0A470071B3B1 /* Axis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Axis.swift; sourceTree = "<group>"; };
 		618B7E251BBEF35A0011E8D3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		618B7E261BBEF35A0011E8D3 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		978A66186D388A63CB68E0C6 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		61CE4BF61BED8741000E0D34 /* 6C59CE31-3D47-35D0-8778-3BE0426B6445.bcsymbolmap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "6C59CE31-3D47-35D0-8778-3BE0426B6445.bcsymbolmap"; sourceTree = "<group>"; };
+		61CE4BF71BED8741000E0D34 /* 77AFE011-8183-3FDD-8E26-9E69074254DF.bcsymbolmap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "77AFE011-8183-3FDD-8E26-9E69074254DF.bcsymbolmap"; sourceTree = "<group>"; };
+		61CE4BF81BED8741000E0D34 /* Upsurge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Upsurge.framework; sourceTree = "<group>"; };
+		61CE4BF91BED8741000E0D34 /* Upsurge.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = Upsurge.framework.dSYM; sourceTree = "<group>"; };
+		61CE4BFB1BED8741000E0D34 /* Upsurge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Upsurge.framework; sourceTree = "<group>"; };
+		61CE4BFC1BED8741000E0D34 /* Upsurge.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = Upsurge.framework.dSYM; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7455A9E277FE43FCF1EF2BAA /* Pods.framework in Frameworks */,
+				61CE4C011BED8741000E0D34 /* Upsurge.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -97,15 +100,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1C3938A8E9BC0AF1CDA85FF9 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				2E142E2ED790639F9BEB7C84 /* Pods.debug.xcconfig */,
-				978A66186D388A63CB68E0C6 /* Pods.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		6108DFED1BB9D9E8004A4337 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -134,9 +128,8 @@
 				610B1B351BB740B800B64973 /* PlotKit */,
 				610B1B411BB740B800B64973 /* PlotKitTests */,
 				616B83941BDBF85E00B28545 /* PlotKitDemo */,
+				61CE4C031BED8745000E0D34 /* Dependencies */,
 				610B1B341BB740B800B64973 /* Products */,
-				1C3938A8E9BC0AF1CDA85FF9 /* Pods */,
-				AFBA798201BAB213AA48A6BA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -183,12 +176,35 @@
 			path = PlotKitDemo;
 			sourceTree = "<group>";
 		};
-		AFBA798201BAB213AA48A6BA /* Frameworks */ = {
+		61CE4BF51BED8741000E0D34 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				26D34F1F38C1DBA9B5FE9ACB /* Pods.framework */,
+				61CE4BF61BED8741000E0D34 /* 6C59CE31-3D47-35D0-8778-3BE0426B6445.bcsymbolmap */,
+				61CE4BF71BED8741000E0D34 /* 77AFE011-8183-3FDD-8E26-9E69074254DF.bcsymbolmap */,
+				61CE4BF81BED8741000E0D34 /* Upsurge.framework */,
+				61CE4BF91BED8741000E0D34 /* Upsurge.framework.dSYM */,
 			);
-			name = Frameworks;
+			name = iOS;
+			path = Carthage/Build/iOS;
+			sourceTree = "<group>";
+		};
+		61CE4BFA1BED8741000E0D34 /* Mac */ = {
+			isa = PBXGroup;
+			children = (
+				61CE4BFB1BED8741000E0D34 /* Upsurge.framework */,
+				61CE4BFC1BED8741000E0D34 /* Upsurge.framework.dSYM */,
+			);
+			name = Mac;
+			path = Carthage/Build/Mac;
+			sourceTree = "<group>";
+		};
+		61CE4C031BED8745000E0D34 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				61CE4BF51BED8741000E0D34 /* iOS */,
+				61CE4BFA1BED8741000E0D34 /* Mac */,
+			);
+			name = Dependencies;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -209,12 +225,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 610B1B471BB740B800B64973 /* Build configuration list for PBXNativeTarget "PlotKit" */;
 			buildPhases = (
-				B262FF0E6FDC94B5E71AB552 /* Check Pods Manifest.lock */,
 				610B1B2E1BB740B800B64973 /* Sources */,
 				610B1B2F1BB740B800B64973 /* Frameworks */,
 				610B1B301BB740B800B64973 /* Headers */,
 				610B1B311BB740B800B64973 /* Resources */,
-				54435DC50D89575AD5128AD7 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -327,39 +341,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		54435DC50D89575AD5128AD7 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B262FF0E6FDC94B5E71AB552 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		610B1B2E1BB740B800B64973 /* Sources */ = {
@@ -508,7 +489,6 @@
 		};
 		610B1B481BB740B800B64973 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2E142E2ED790639F9BEB7C84 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -517,6 +497,10 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = PlotKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -530,7 +514,6 @@
 		};
 		610B1B491BB740B800B64973 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 978A66186D388A63CB68E0C6 /* Pods.release.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -539,6 +522,10 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = PlotKit/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
@@ -636,6 +623,7 @@
 				616B83A01BDBF85E00B28545 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
