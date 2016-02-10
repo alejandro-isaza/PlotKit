@@ -8,15 +8,11 @@ import Foundation
 import Upsurge
 
 public class PlotView : NSView {
-    struct Constants {
-        static let hPadding = CGFloat(60)
-        static let vPadding = CGFloat(40)
-    }
+    public var backgroundColor: NSColor = NSColor.whiteColor()
+    public var insets = NSEdgeInsets(top: 40, left: 60, bottom: 40, right: 60)
 
     var axisViews = [AxisView]()
     var pointSetViews = [PointSetView]()
-
-    public var backgroundColor: NSColor = NSColor.whiteColor()
 
     /// If not `nil` the x values are limited to this interval, otherwise the x interval will fit all values
     public var fixedXInterval: ClosedInterval<Double>? {
@@ -60,14 +56,9 @@ public class PlotView : NSView {
 
     public func addAxis(axis: Axis) {
         let view = AxisView(axis: axis)
+        view.insets = insets
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view, positioned: .Above, relativeTo: pointSetViews.last)
-
-        view.insets = NSEdgeInsets(
-            top: Constants.vPadding,
-            left: Constants.hPadding,
-            bottom: Constants.vPadding,
-            right: Constants.hPadding)
 
         let views = ["view": view]
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[view]|",
@@ -86,12 +77,14 @@ public class PlotView : NSView {
 
         let views = ["view": view]
         let metrics = [
-            "hPadding": Constants.hPadding,
-            "vPadding": Constants.vPadding
+            "topInset": insets.top,
+            "leftInset": insets.left,
+            "bottomInset": insets.bottom,
+            "rightInset": insets.right,
         ]
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(hPadding)-[view]-(hPadding)-|",
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(leftInset)-[view]-(rightInset)-|",
             options: .AlignAllCenterY, metrics: metrics, views: views))
-        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(vPadding)-[view]-(vPadding)-|",
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(topInset)-[view]-(bottomInset)-|",
             options: .AlignAllCenterX, metrics: metrics, views: views))
 
         pointSetViews.append(view)
