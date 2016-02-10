@@ -23,7 +23,7 @@ internal class PointSetView: NSView {
         yInterval = 0...1
         super.init(frame: NSRect(x: 0, y: 0, width: 512, height: 512))
     }
-    
+
     init(pointSet: PointSet) {
         self.pointSet = pointSet
         self.xInterval = pointSet.xInterval ?? 0...1
@@ -40,53 +40,98 @@ internal class PointSetView: NSView {
 
     override func drawRect(rect: CGRect) {
         let context = NSGraphicsContext.currentContext()?.CGContext
-        pointSet.color.setStroke()
-        pointSet.color.setFill()
         CGContextSetLineWidth(context, pointSet.lineWidth)
 
-        if let first = pointSet.points.first {
-            let startPoint = convertToView(x: first.x, y: first.y)
-            CGContextMoveToPoint(context, startPoint.x, startPoint.y)
-        }
-
-        let drawPoint = drawPointForPointSet()
-        for point in pointSet.points {
-            let point = convertToView(x: point.x, y: point.y)
-            CGContextAddLineToPoint(context, point.x, point.y)
-            drawPoint(context, point)
-        }
-
-        if pointSet.lines {
+        if let color = pointSet.lineColor {
+            color.setStroke()
+            CGContextAddPath(context, path)
             CGContextStrokePath(context)
         }
+
+        if let color = pointSet.fillColor {
+            color.setFill()
+            CGContextAddPath(context, closedPath)
+            CGContextFillPath(context)
+        }
+
+        drawPoints(context)
     }
+
+    var path: CGPath {
+        let path = CGPathCreateMutable()
+        if pointSet.points.isEmpty {
+            return path
+        }
+
+        let first = pointSet.points.first!
+        let startPoint = convertToView(x: first.x, y: first.y)
+        CGPathMoveToPoint(path, nil, startPoint.x, startPoint.y)
+
+        for point in pointSet.points {
+            let point = convertToView(x: point.x, y: point.y)
+            CGPathAddLineToPoint(path, nil, point.x, point.y)
+        }
+
+        return path
+    }
+
+    var closedPath: CGPath {
+        let path = CGPathCreateMutable()
+        if pointSet.points.isEmpty {
+            return path
+        }
+
+        let first = pointSet.points.first!
+        let startPoint = convertToView(x: first.x, y: 0)
+        CGPathMoveToPoint(path, nil, startPoint.x, startPoint.y)
+
+        for point in pointSet.points {
+            let point = convertToView(x: point.x, y: point.y)
+            CGPathAddLineToPoint(path, nil, point.x, point.y)
+        }
+
+        let last = pointSet.points.last!
+        let endPoint = convertToView(x: last.x, y: 0)
+        CGPathAddLineToPoint(path, nil, endPoint.x, endPoint.y)
+        CGPathCloseSubpath(path)
+
+        return path
+    }
+
 
     // MARK: - Point drawing
 
-    func drawPointForPointSet() -> (CGContextRef?, CGPoint) -> () {
+    func drawPoints(context: CGContext?) {
+        if let color = pointSet.pointColor {
+            color.setFill()
+        } else if let color = pointSet.lineColor {
+            color.setFill()
+        } else {
+            NSColor.blackColor().setFill()
+        }
+
+        for point in pointSet.points {
+            let point = convertToView(x: point.x, y: point.y)
+            drawPoint(context, center: point)
+        }
+    }
+
+    func drawPoint(context: CGContext?, center: CGPoint) {
         switch pointSet.pointType {
         case .None:
-            return { _, _ in }
+            break
 
         case .Ring(let radius):
-            return { context, center in
-                self.drawCircle(context, center: center, radius: radius)
-            }
+            self.drawCircle(context, center: center, radius: radius)
 
         case .Disk(let radius):
-            return { context, center in
-                self.drawDisk(context, center: center, radius: radius)
-            }
+            self.drawDisk(context, center: center, radius: radius)
 
         case .Square(let side):
-            return { context, center in
-                self.drawSquare(context, center: center, side: side)
-            }
+            self.drawSquare(context, center: center, side: side)
 
         case .FilledSquare(let side):
-            return { context, center in
-                self.drawFilledSquare(context, center: center, side: side)
-            }
+            self.drawFilledSquare(context, center: center, side: side)
         }
     }
 
@@ -135,10 +180,10 @@ internal class PointSetView: NSView {
             x: mapValue(x, fromInterval: xInterval, toInterval: boundsXInterval),
             y: mapValue(y, fromInterval: yInterval, toInterval: boundsYInterval))
     }
+
     
-
     // MARK: - NSCoding
-
+    
     required init?(coder: NSCoder) {
         pointSet = PointSet()
         xInterval = 0.0...0.0

@@ -27,9 +27,10 @@ public struct Point {
 
 public class PointSet {
     public var points: [Point]
-    public var lines = true
     public var lineWidth = CGFloat(1.0)
-    public var color = NSColor.redColor()
+    public var lineColor: NSColor? = NSColor.redColor()
+    public var fillColor: NSColor? = nil
+    public var pointColor: NSColor? = NSColor.redColor()
     public var pointType = PointType.None
 
     public var xInterval: ClosedInterval<Double> {
