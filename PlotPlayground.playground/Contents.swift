@@ -1,14 +1,13 @@
 import PlotKit
-import Upsurge
 import XCPlayground
 
+let π = M_PI
 
 //: ## Manually generating a wave
 //: We generate a sine between 0 and 2π sampled 1024 times
-let π = M_PI
 let count = 1024
-let t = (0..<count).map{ 2*π * Double($0) / Double(count-1) }
-let y = sin(RealArray(t))
+let t = (0..<count).map({ 2*π * Double($0) / Double(count-1) })
+let y = t.map({ sin($0) })
 
 
 //: ## Plotting
