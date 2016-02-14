@@ -5,6 +5,7 @@
 
 Plots made easy.
 
+![PlotKit Plot](example.png?raw=true "PlotKit Plot")
 
 ## Features
 
@@ -24,7 +25,6 @@ import PlotKit
 let count = 1024
 let t = (0..<count).map({ 2*M_PI * Double($0) / Double(count-1) })
 let y = t.map({ sin($0) })
-
 
 // Create a PlotView
 let plotView1 = plotPoints((0..<count).map{ Point(x: t[$0], y: y[$0]) }, hTicks: .Fit(6), vTicks: .Fit(4))
