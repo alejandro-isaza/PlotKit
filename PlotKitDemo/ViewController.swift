@@ -9,12 +9,18 @@ import PlotKit
 import Upsurge
 
 class ViewController: NSViewController {
+    let π = M_PI
+    let sampleCount = 1024
+    let font = NSFont(name: "Optima", size: 16)!
+
     var plotView: PlotView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         createPlotView()
+        createAxes()
         createSinePlot()
+        createCosinePlot()
     }
 
     func createPlotView() {
@@ -28,14 +34,7 @@ class ViewController: NSViewController {
         plotView.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor).active = true
     }
 
-    func createSinePlot() {
-        let font = NSFont(name: "Optima", size: 16)!
-
-        let π = M_PI
-        let count = 1024
-        let t = (0..<count).map{ 2*π * Double($0) / Double(count-1) }
-        let y = sin(RealArray(t))
-
+    func createAxes() {
         let ticks = [
             TickMark(π/2, label: "π/2"),
             TickMark(π, label: "π"),
@@ -50,8 +49,22 @@ class ViewController: NSViewController {
         var yaxis = Axis(orientation: .Vertical, ticks: .Fit(4))
         yaxis.labelAttributes = [NSFontAttributeName: font]
         plotView.addAxis(yaxis)
+    }
 
-        let pointSet = PointSet(points: (0..<count).map{ Point(x: t[$0], y: y[$0]) })
+    func createSinePlot() {
+        let t = (0..<sampleCount).map({ 2*π * Double($0) / Double(sampleCount - 1) })
+        let y = t.map({ sin($0) })
+
+        let pointSet = PointSet(points: (0..<sampleCount).map{ Point(x: t[$0], y: y[$0]) })
+        plotView.addPointSet(pointSet)
+    }
+
+    func createCosinePlot() {
+        let t = (0..<sampleCount).map({ 2*π * Double($0) / Double(sampleCount - 1) })
+        let y = t.map({ cos($0) })
+
+        let pointSet = PointSet(points: (0..<sampleCount).map{ Point(x: t[$0], y: y[$0]) })
+        pointSet.lineColor = NSColor.blueColor()
         plotView.addPointSet(pointSet)
     }
 }
