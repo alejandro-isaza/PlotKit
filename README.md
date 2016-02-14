@@ -78,4 +78,4 @@ You can specify ticks in one of three ways:
 
 ## License
 
-Upsurge is available under the MIT license. See the LICENSE file for more info.
+PlotKit is available under the MIT license. See the LICENSE file for more info.

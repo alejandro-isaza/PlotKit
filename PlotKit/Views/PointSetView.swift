@@ -5,7 +5,6 @@
 // file LICENSE at the root of the source code distribution tree.
 
 import Foundation
-import Upsurge
 
 internal class PointSetView: NSView {
     var pointSet: PointSet {

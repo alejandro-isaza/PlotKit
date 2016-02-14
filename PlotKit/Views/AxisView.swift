@@ -5,7 +5,6 @@
 // file LICENSE at the root of the source code distribution tree.
 
 import Foundation
-import Upsurge
 
 internal class AxisView: NSView {
     var insets = NSEdgeInsets(top: 40, left: 60, bottom: 40, right: 60)

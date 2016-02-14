@@ -15,8 +15,6 @@
 		610B1B371BB740B800B64973 /* PlotKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 610B1B361BB740B800B64973 /* PlotKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		610B1B3E1BB740B800B64973 /* PlotKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 610B1B331BB740B800B64973 /* PlotKit.framework */; };
 		61208F301BDBEE1C002F180E /* PlotHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61208F2F1BDBEE1C002F180E /* PlotHelpers.swift */; };
-		6141B1FE1C70159C0074BD8C /* Upsurge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61CE4BFB1BED8741000E0D34 /* Upsurge.framework */; };
-		6141B1FF1C70159C0074BD8C /* Upsurge.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 61CE4BFB1BED8741000E0D34 /* Upsurge.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6141B2001C70159C0074BD8C /* PlotKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 610B1B331BB740B800B64973 /* PlotKit.framework */; };
 		6141B2011C70159C0074BD8C /* PlotKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 610B1B331BB740B800B64973 /* PlotKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		61580FB01BD2F99A008D9DDA /* ClosedIntervalHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61580FAF1BD2F99A008D9DDA /* ClosedIntervalHelpers.swift */; };
@@ -25,7 +23,6 @@
 		616B839A1BDBF85E00B28545 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 616B83991BDBF85E00B28545 /* Assets.xcassets */; };
 		616B839D1BDBF85E00B28545 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 616B839B1BDBF85E00B28545 /* Main.storyboard */; };
 		618396B71BBA0A470071B3B1 /* Axis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618396B61BBA0A470071B3B1 /* Axis.swift */; };
-		61CE4C011BED8741000E0D34 /* Upsurge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61CE4BFB1BED8741000E0D34 /* Upsurge.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,7 +50,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				6141B2011C70159C0074BD8C /* PlotKit.framework in Embed Frameworks */,
-				6141B1FF1C70159C0074BD8C /* Upsurge.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -82,12 +78,6 @@
 		618396B61BBA0A470071B3B1 /* Axis.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Axis.swift; sourceTree = "<group>"; };
 		618B7E251BBEF35A0011E8D3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		618B7E261BBEF35A0011E8D3 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		61CE4BF61BED8741000E0D34 /* 6C59CE31-3D47-35D0-8778-3BE0426B6445.bcsymbolmap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "6C59CE31-3D47-35D0-8778-3BE0426B6445.bcsymbolmap"; sourceTree = "<group>"; };
-		61CE4BF71BED8741000E0D34 /* 77AFE011-8183-3FDD-8E26-9E69074254DF.bcsymbolmap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "77AFE011-8183-3FDD-8E26-9E69074254DF.bcsymbolmap"; sourceTree = "<group>"; };
-		61CE4BF81BED8741000E0D34 /* Upsurge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Upsurge.framework; sourceTree = "<group>"; };
-		61CE4BF91BED8741000E0D34 /* Upsurge.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = Upsurge.framework.dSYM; sourceTree = "<group>"; };
-		61CE4BFB1BED8741000E0D34 /* Upsurge.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Upsurge.framework; sourceTree = "<group>"; };
-		61CE4BFC1BED8741000E0D34 /* Upsurge.framework.dSYM */ = {isa = PBXFileReference; lastKnownFileType = wrapper.dsym; path = Upsurge.framework.dSYM; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +85,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				61CE4C011BED8741000E0D34 /* Upsurge.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,7 +101,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				6141B2001C70159C0074BD8C /* PlotKit.framework in Frameworks */,
-				6141B1FE1C70159C0074BD8C /* Upsurge.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,7 +135,6 @@
 				610B1B351BB740B800B64973 /* PlotKit */,
 				610B1B411BB740B800B64973 /* PlotKitTests */,
 				616B83941BDBF85E00B28545 /* PlotKitDemo */,
-				61CE4C031BED8745000E0D34 /* Dependencies */,
 				610B1B341BB740B800B64973 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -193,37 +180,6 @@
 				616B839E1BDBF85E00B28545 /* Info.plist */,
 			);
 			path = PlotKitDemo;
-			sourceTree = "<group>";
-		};
-		61CE4BF51BED8741000E0D34 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				61CE4BF61BED8741000E0D34 /* 6C59CE31-3D47-35D0-8778-3BE0426B6445.bcsymbolmap */,
-				61CE4BF71BED8741000E0D34 /* 77AFE011-8183-3FDD-8E26-9E69074254DF.bcsymbolmap */,
-				61CE4BF81BED8741000E0D34 /* Upsurge.framework */,
-				61CE4BF91BED8741000E0D34 /* Upsurge.framework.dSYM */,
-			);
-			name = iOS;
-			path = Carthage/Build/iOS;
-			sourceTree = "<group>";
-		};
-		61CE4BFA1BED8741000E0D34 /* Mac */ = {
-			isa = PBXGroup;
-			children = (
-				61CE4BFB1BED8741000E0D34 /* Upsurge.framework */,
-				61CE4BFC1BED8741000E0D34 /* Upsurge.framework.dSYM */,
-			);
-			name = Mac;
-			path = Carthage/Build/Mac;
-			sourceTree = "<group>";
-		};
-		61CE4C031BED8745000E0D34 /* Dependencies */ = {
-			isa = PBXGroup;
-			children = (
-				61CE4BF51BED8741000E0D34 /* iOS */,
-				61CE4BFA1BED8741000E0D34 /* Mac */,
-			);
-			name = Dependencies;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

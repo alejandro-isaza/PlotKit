@@ -6,7 +6,6 @@
 
 import Cocoa
 import PlotKit
-import Upsurge
 
 class ViewController: NSViewController {
     let π = M_PI
