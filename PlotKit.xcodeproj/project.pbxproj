@@ -15,12 +15,15 @@
 		610B1B371BB740B800B64973 /* PlotKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 610B1B361BB740B800B64973 /* PlotKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		610B1B3E1BB740B800B64973 /* PlotKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 610B1B331BB740B800B64973 /* PlotKit.framework */; };
 		61208F301BDBEE1C002F180E /* PlotHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61208F2F1BDBEE1C002F180E /* PlotHelpers.swift */; };
+		6141B1FE1C70159C0074BD8C /* Upsurge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61CE4BFB1BED8741000E0D34 /* Upsurge.framework */; };
+		6141B1FF1C70159C0074BD8C /* Upsurge.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 61CE4BFB1BED8741000E0D34 /* Upsurge.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		6141B2001C70159C0074BD8C /* PlotKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 610B1B331BB740B800B64973 /* PlotKit.framework */; };
+		6141B2011C70159C0074BD8C /* PlotKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 610B1B331BB740B800B64973 /* PlotKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		61580FB01BD2F99A008D9DDA /* ClosedIntervalHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61580FAF1BD2F99A008D9DDA /* ClosedIntervalHelpers.swift */; };
 		616B83961BDBF85E00B28545 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616B83951BDBF85E00B28545 /* AppDelegate.swift */; };
 		616B83981BDBF85E00B28545 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616B83971BDBF85E00B28545 /* ViewController.swift */; };
 		616B839A1BDBF85E00B28545 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 616B83991BDBF85E00B28545 /* Assets.xcassets */; };
 		616B839D1BDBF85E00B28545 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 616B839B1BDBF85E00B28545 /* Main.storyboard */; };
-		616B83A61BDBFE0B00B28545 /* PlotKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 610B1B331BB740B800B64973 /* PlotKit.framework */; };
 		618396B71BBA0A470071B3B1 /* Axis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618396B61BBA0A470071B3B1 /* Axis.swift */; };
 		61CE4C011BED8741000E0D34 /* Upsurge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61CE4BFB1BED8741000E0D34 /* Upsurge.framework */; };
 /* End PBXBuildFile section */
@@ -33,7 +36,7 @@
 			remoteGlobalIDString = 610B1B321BB740B800B64973;
 			remoteInfo = PlotKit;
 		};
-		616B83A41BDBFE0400B28545 /* PBXContainerItemProxy */ = {
+		6141B2021C70159C0074BD8C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 610B1B2A1BB740B800B64973 /* Project object */;
 			proxyType = 1;
@@ -41,6 +44,21 @@
 			remoteInfo = PlotKit;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		6141B2041C70159C0074BD8C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				6141B2011C70159C0074BD8C /* PlotKit.framework in Embed Frameworks */,
+				6141B1FF1C70159C0074BD8C /* Upsurge.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		6108DFF01BB9D9E8004A4337 /* PointSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PointSet.swift; sourceTree = "<group>"; };
@@ -93,7 +111,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				616B83A61BDBFE0B00B28545 /* PlotKit.framework in Frameworks */,
+				6141B2001C70159C0074BD8C /* PlotKit.framework in Frameworks */,
+				6141B1FE1C70159C0074BD8C /* Upsurge.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -264,11 +283,12 @@
 				616B838F1BDBF85E00B28545 /* Sources */,
 				616B83901BDBF85E00B28545 /* Frameworks */,
 				616B83911BDBF85E00B28545 /* Resources */,
+				6141B2041C70159C0074BD8C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				616B83A51BDBFE0400B28545 /* PBXTargetDependency */,
+				6141B2031C70159C0074BD8C /* PBXTargetDependency */,
 			);
 			name = PlotKitDemo;
 			productName = PlotKitDemo;
@@ -382,10 +402,10 @@
 			target = 610B1B321BB740B800B64973 /* PlotKit */;
 			targetProxy = 610B1B3F1BB740B800B64973 /* PBXContainerItemProxy */;
 		};
-		616B83A51BDBFE0400B28545 /* PBXTargetDependency */ = {
+		6141B2031C70159C0074BD8C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 610B1B321BB740B800B64973 /* PlotKit */;
-			targetProxy = 616B83A41BDBFE0400B28545 /* PBXContainerItemProxy */;
+			targetProxy = 6141B2021C70159C0074BD8C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -491,6 +511,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -516,6 +537,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -564,6 +586,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = PlotKitDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
@@ -578,6 +605,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "-";
 				COMBINE_HIDPI_IMAGES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/Mac",
+				);
 				INFOPLIST_FILE = PlotKitDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.11;
