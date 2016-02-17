@@ -18,8 +18,13 @@
 		6141B2001C70159C0074BD8C /* PlotKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 610B1B331BB740B800B64973 /* PlotKit.framework */; };
 		6141B2011C70159C0074BD8C /* PlotKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 610B1B331BB740B800B64973 /* PlotKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		61580FB01BD2F99A008D9DDA /* ClosedIntervalHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61580FAF1BD2F99A008D9DDA /* ClosedIntervalHelpers.swift */; };
+		616275D81C74040C00826C07 /* HeatMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616275D71C74040C00826C07 /* HeatMapView.swift */; };
+		616275DA1C74E4D200826C07 /* ColorMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616275D91C74E4D200826C07 /* ColorMap.swift */; };
+		616275DC1C74E53B00826C07 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616275DB1C74E53B00826C07 /* Color.swift */; };
+		616275E01C74F1A600826C07 /* HeatMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616275DF1C74F1A600826C07 /* HeatMapViewController.swift */; };
+		616275E21C74F77200826C07 /* DataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616275E11C74F77200826C07 /* DataView.swift */; };
 		616B83961BDBF85E00B28545 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616B83951BDBF85E00B28545 /* AppDelegate.swift */; };
-		616B83981BDBF85E00B28545 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616B83971BDBF85E00B28545 /* ViewController.swift */; };
+		616B83981BDBF85E00B28545 /* SinCosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 616B83971BDBF85E00B28545 /* SinCosViewController.swift */; };
 		616B839A1BDBF85E00B28545 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 616B83991BDBF85E00B28545 /* Assets.xcassets */; };
 		616B839D1BDBF85E00B28545 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 616B839B1BDBF85E00B28545 /* Main.storyboard */; };
 		618396B71BBA0A470071B3B1 /* Axis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618396B61BBA0A470071B3B1 /* Axis.swift */; };
@@ -69,9 +74,14 @@
 		610B1B441BB740B800B64973 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		61208F2F1BDBEE1C002F180E /* PlotHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlotHelpers.swift; sourceTree = "<group>"; };
 		61580FAF1BD2F99A008D9DDA /* ClosedIntervalHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClosedIntervalHelpers.swift; sourceTree = "<group>"; };
+		616275D71C74040C00826C07 /* HeatMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeatMapView.swift; sourceTree = "<group>"; };
+		616275D91C74E4D200826C07 /* ColorMap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorMap.swift; sourceTree = "<group>"; };
+		616275DB1C74E53B00826C07 /* Color.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		616275DF1C74F1A600826C07 /* HeatMapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeatMapViewController.swift; sourceTree = "<group>"; };
+		616275E11C74F77200826C07 /* DataView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataView.swift; sourceTree = "<group>"; };
 		616B83931BDBF85E00B28545 /* PlotKitDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlotKitDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		616B83951BDBF85E00B28545 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		616B83971BDBF85E00B28545 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		616B83971BDBF85E00B28545 /* SinCosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SinCosViewController.swift; sourceTree = "<group>"; };
 		616B83991BDBF85E00B28545 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		616B839C1BDBF85E00B28545 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		616B839E1BDBF85E00B28545 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -110,9 +120,11 @@
 		6108DFED1BB9D9E8004A4337 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				618396B61BBA0A470071B3B1 /* Axis.swift */,
+				616275DB1C74E53B00826C07 /* Color.swift */,
+				616275D91C74E4D200826C07 /* ColorMap.swift */,
 				6108DFF01BB9D9E8004A4337 /* PointSet.swift */,
 				6108DFFB1BB9D9F9004A4337 /* TickMark.swift */,
-				618396B61BBA0A470071B3B1 /* Axis.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -120,8 +132,10 @@
 		6108DFF11BB9D9E8004A4337 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				6108DFF31BB9D9E8004A4337 /* PlotView.swift */,
 				6108DFF21BB9D9E8004A4337 /* AxisView.swift */,
+				616275E11C74F77200826C07 /* DataView.swift */,
+				616275D71C74040C00826C07 /* HeatMapView.swift */,
+				6108DFF31BB9D9E8004A4337 /* PlotView.swift */,
 				6108DFF41BB9D9E8004A4337 /* PointSetView.swift */,
 			);
 			path = Views;
@@ -174,7 +188,8 @@
 			isa = PBXGroup;
 			children = (
 				616B83951BDBF85E00B28545 /* AppDelegate.swift */,
-				616B83971BDBF85E00B28545 /* ViewController.swift */,
+				616B83971BDBF85E00B28545 /* SinCosViewController.swift */,
+				616275DF1C74F1A600826C07 /* HeatMapViewController.swift */,
 				616B83991BDBF85E00B28545 /* Assets.xcassets */,
 				616B839B1BDBF85E00B28545 /* Main.storyboard */,
 				616B839E1BDBF85E00B28545 /* Info.plist */,
@@ -323,9 +338,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				616275D81C74040C00826C07 /* HeatMapView.swift in Sources */,
 				6108DFF81BB9D9E8004A4337 /* AxisView.swift in Sources */,
+				616275DC1C74E53B00826C07 /* Color.swift in Sources */,
+				616275DA1C74E4D200826C07 /* ColorMap.swift in Sources */,
 				6108DFFA1BB9D9E8004A4337 /* PointSetView.swift in Sources */,
 				618396B71BBA0A470071B3B1 /* Axis.swift in Sources */,
+				616275E21C74F77200826C07 /* DataView.swift in Sources */,
 				6108DFF91BB9D9E8004A4337 /* PlotView.swift in Sources */,
 				6108DFF71BB9D9E8004A4337 /* PointSet.swift in Sources */,
 				61580FB01BD2F99A008D9DDA /* ClosedIntervalHelpers.swift in Sources */,
@@ -345,7 +364,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				616B83981BDBF85E00B28545 /* ViewController.swift in Sources */,
+				616B83981BDBF85E00B28545 /* SinCosViewController.swift in Sources */,
+				616275E01C74F1A600826C07 /* HeatMapViewController.swift in Sources */,
 				616B83961BDBF85E00B28545 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

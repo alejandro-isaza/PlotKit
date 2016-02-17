@@ -6,38 +6,36 @@
 
 import Foundation
 
-internal class PointSetView: NSView {
-    var pointSet: PointSet {
+/// PointSetView draws a discrete set of 2D points, optionally connecting them with lines. PointSetView does not draw axes or any other plot decorations, use a `PlotView` for that.
+public class PointSetView: DataView {
+    public var pointSet: PointSet {
         didSet {
             needsDisplay = true
         }
     }
 
-    var xInterval: ClosedInterval<Double>
-    var yInterval: ClosedInterval<Double>
-
-    init() {
+    public init() {
         pointSet = PointSet()
-        xInterval = 0...1
-        yInterval = 0...1
         super.init(frame: NSRect(x: 0, y: 0, width: 512, height: 512))
     }
 
-    init(pointSet: PointSet) {
+    public init(pointSet: PointSet) {
         self.pointSet = pointSet
-        self.xInterval = pointSet.xInterval ?? 0...1
-        self.yInterval = pointSet.yInterval ?? 0...1
         super.init(frame: NSRect(x: 0, y: 0, width: 512, height: 512))
+
+        self.xInterval = pointSet.xInterval
+        self.yInterval = pointSet.yInterval
     }
 
-    init(pointSet: PointSet, xInterval: ClosedInterval<Double>, yInterval: ClosedInterval<Double>) {
+    public init(pointSet: PointSet, xInterval: ClosedInterval<Double>, yInterval: ClosedInterval<Double>) {
         self.pointSet = pointSet
+        super.init(frame: NSRect(x: 0, y: 0, width: 512, height: 512))
+
         self.xInterval = xInterval
         self.yInterval = yInterval
-        super.init(frame: NSRect(x: 0, y: 0, width: 512, height: 512))
     }
 
-    override func drawRect(rect: CGRect) {
+    public override func drawRect(rect: CGRect) {
         let context = NSGraphicsContext.currentContext()?.CGContext
         CGContextSetLineWidth(context, pointSet.lineWidth)
 
@@ -183,10 +181,8 @@ internal class PointSetView: NSView {
     
     // MARK: - NSCoding
     
-    required init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         pointSet = PointSet()
-        xInterval = 0.0...0.0
-        yInterval = 0.0...0.0
         super.init(coder: coder)
     }
 }

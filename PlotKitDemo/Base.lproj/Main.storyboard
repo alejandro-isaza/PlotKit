@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="6198" systemVersion="14A297b" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6198"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="9532"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -641,12 +642,12 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="PlotKitDemo" customModuleProvider="target"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="0.0"/>
         </scene>
-        <!--Window Controller - Window-->
+        <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
@@ -657,25 +658,89 @@
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                     </window>
                     <connections>
-                        <segue destination="XfG-lQ-9wD" kind="relationship" relationship="window.shadowedContentViewController" id="cq2-FE-JQM"/>
+                        <segue destination="0EY-ZA-cqv" kind="relationship" relationship="window.shadowedContentViewController" id="JDY-cf-Gta"/>
                     </connections>
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="hIz-AP-VOD">
+        <!--Tab View Controller-->
+        <scene sceneID="vve-ty-MIG">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                <tabViewController id="0EY-ZA-cqv" sceneMemberID="viewController">
+                    <tabViewItems>
+                        <tabViewItem label="2D Line Plot" id="GVi-Gb-iTd"/>
+                        <tabViewItem label="Heat Map" id="6cf-Bh-REb"/>
+                    </tabViewItems>
+                    <tabView key="tabView" type="noTabsNoBorder" id="OAt-yt-aqH">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
-                    </view>
-                </viewController>
-                <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                        <font key="font" metaFont="message"/>
+                        <tabViewItems/>
+                    </tabView>
+                    <connections>
+                        <segue destination="IxO-4j-kbo" kind="relationship" relationship="tabItems" id="XEv-ra-3jC"/>
+                        <segue destination="Rfp-Vg-kUe" kind="relationship" relationship="tabItems" id="7Rh-ee-HNH"/>
+                    </connections>
+                </tabViewController>
+                <customObject id="nlo-St-5jx" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="75" y="759"/>
+        </scene>
+        <!--Sin Cos View Controller-->
+        <scene sceneID="09Y-82-6Fk">
+            <objects>
+                <viewController storyboardIdentifier="SinCosViewController" id="IxO-4j-kbo" customClass="SinCosViewController" customModule="PlotKitDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="Xcx-Dd-ug4">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView canDrawConcurrently="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VuH-DP-VRb" customClass="PlotView" customModule="PlotKit">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="VuH-DP-VRb" secondAttribute="bottom" id="UBE-er-BOx"/>
+                            <constraint firstItem="VuH-DP-VRb" firstAttribute="top" secondItem="Xcx-Dd-ug4" secondAttribute="top" id="nvO-UJ-jnb"/>
+                            <constraint firstItem="VuH-DP-VRb" firstAttribute="leading" secondItem="Xcx-Dd-ug4" secondAttribute="leading" id="ou8-Q8-bsv"/>
+                            <constraint firstAttribute="trailing" secondItem="VuH-DP-VRb" secondAttribute="trailing" id="yC0-PX-yrD"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="plotView" destination="VuH-DP-VRb" id="BLH-VI-WFA"/>
+                    </connections>
+                </viewController>
+                <customObject id="cdN-f1-9Hp" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="826" y="506"/>
+        </scene>
+        <!--Heat Map View Controller-->
+        <scene sceneID="5jQ-Vk-aT3">
+            <objects>
+                <viewController storyboardIdentifier="HeatMapViewController" id="Rfp-Vg-kUe" customClass="HeatMapViewController" customModule="PlotKitDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="YPH-1K-0cM">
+                        <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView canDrawConcurrently="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fcl-HZ-eYt" customClass="PlotView" customModule="PlotKit">
+                                <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Fcl-HZ-eYt" firstAttribute="leading" secondItem="YPH-1K-0cM" secondAttribute="leading" id="G0q-xz-cmI"/>
+                            <constraint firstAttribute="trailing" secondItem="Fcl-HZ-eYt" secondAttribute="trailing" id="J3b-5u-rb6"/>
+                            <constraint firstAttribute="bottom" secondItem="Fcl-HZ-eYt" secondAttribute="bottom" id="KMK-T2-zx1"/>
+                            <constraint firstItem="Fcl-HZ-eYt" firstAttribute="top" secondItem="YPH-1K-0cM" secondAttribute="top" id="p4C-yQ-bt3"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="plotView" destination="Fcl-HZ-eYt" id="RTH-ik-E8M"/>
+                    </connections>
+                </viewController>
+                <customObject id="7Xo-c7-7I0" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="826" y="943"/>
         </scene>
     </scenes>
 </document>

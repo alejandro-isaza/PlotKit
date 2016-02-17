@@ -4,14 +4,17 @@
 // terms governing use, modification, and redistribution, is contained in the
 // file LICENSE at the root of the source code distribution tree.
 
-import Foundation
+import Cocoa
 
-public class PlotView : NSView {
-    public var backgroundColor: NSColor = NSColor.whiteColor()
+/// PlotView manages independent data views and draws axes and other plot decorations.
+public class PlotView: NSView {
+    public var backgroundColor: NSColor?
     public var insets = NSEdgeInsets(top: 40, left: 60, bottom: 40, right: 60)
 
     var axisViews = [AxisView]()
-    var pointSetViews = [PointSetView]()
+    var dataViews = [DataView]()
+    var dataXIntervals = [ClosedInterval<Double>]()
+    var dataYIntervals = [ClosedInterval<Double>]()
 
     /// If not `nil` the x values are limited to this interval, otherwise the x interval will fit all values
     public var fixedXInterval: ClosedInterval<Double>? {
@@ -30,11 +33,11 @@ public class PlotView : NSView {
     /// The x-range that fits all the point sets in the plot
     public var fittingXInterval: ClosedInterval<Double> {
         var interval: ClosedInterval<Double>?
-        for view in pointSetViews {
+        for dataInterval in dataXIntervals {
             if let int = interval {
-                interval = join(int, view.pointSet.xInterval)
+                interval = join(int, dataInterval)
             } else {
-                interval = view.pointSet.xInterval
+                interval = dataInterval
             }
         }
         return interval ?? 0.0...1.0
@@ -43,11 +46,11 @@ public class PlotView : NSView {
     /// The y-range that fits all the point sets in the plot
     public var fittingYInterval: ClosedInterval<Double> {
         var interval: ClosedInterval<Double>?
-        for view in pointSetViews {
+        for dataInterval in dataYIntervals {
             if let int = interval {
-                interval = join(int, view.pointSet.yInterval)
+                interval = join(int, dataInterval)
             } else {
-                interval = view.pointSet.yInterval
+                interval = dataInterval
             }
         }
         return interval ?? 0.0...1.0
@@ -57,7 +60,7 @@ public class PlotView : NSView {
         let view = AxisView(axis: axis)
         view.insets = insets
         view.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(view, positioned: .Above, relativeTo: pointSetViews.last)
+        addSubview(view, positioned: .Above, relativeTo: dataViews.last)
 
         let views = ["view": view]
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[view]|",
@@ -67,6 +70,13 @@ public class PlotView : NSView {
 
         axisViews.append(view)
         updateIntervals()
+    }
+
+    public func removeAllAxes() {
+        for view in axisViews {
+            view.removeFromSuperview()
+        }
+        axisViews.removeAll()
     }
 
     public func addPointSet(pointSet: PointSet) {
@@ -86,15 +96,43 @@ public class PlotView : NSView {
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(topInset)-[view]-(bottomInset)-|",
             options: .AlignAllCenterX, metrics: metrics, views: views))
 
-        pointSetViews.append(view)
+        dataViews.append(view)
+        dataXIntervals.append(pointSet.xInterval)
+        dataYIntervals.append(pointSet.yInterval)
         updateIntervals()
     }
 
-    public func clear() {
-        for view in pointSetViews {
+    public func addHeatMap(xInterval xInterval: ClosedInterval<Double>, yInterval: ClosedInterval<Double>, zInterval: ClosedInterval<Double>, valueFunction: HeatMapView.ValueFunction) {
+        let view = HeatMapView(valueFunction: valueFunction)
+        view.xInterval = xInterval
+        view.yInterval = yInterval
+        view.zInterval = zInterval
+        view.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(view, positioned: .Below, relativeTo: axisViews.first)
+
+        let views = ["view": view]
+        let metrics = [
+            "topInset": insets.top,
+            "leftInset": insets.left,
+            "bottomInset": insets.bottom,
+            "rightInset": insets.right,
+        ]
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-(leftInset)-[view]-(rightInset)-|",
+            options: .AlignAllCenterY, metrics: metrics, views: views))
+        addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-(topInset)-[view]-(bottomInset)-|",
+            options: .AlignAllCenterX, metrics: metrics, views: views))
+
+        dataViews.append(view)
+        dataXIntervals.append(xInterval)
+        dataYIntervals.append(yInterval)
+        updateIntervals()
+    }
+
+    public func removeAllPlots() {
+        for view in dataViews {
             view.removeFromSuperview()
         }
-        pointSetViews.removeAll()
+        dataViews.removeAll()
     }
 
 
@@ -119,7 +157,7 @@ public class PlotView : NSView {
             view.xInterval = xInterval
             view.yInterval = yInterval
         }
-        for view in pointSetViews {
+        for view in dataViews {
             view.xInterval = xInterval
             view.yInterval = yInterval
         }
@@ -129,11 +167,13 @@ public class PlotView : NSView {
     // MARK: - NSView overrides
 
     public override var opaque: Bool {
-        return true
+        return backgroundColor != nil
     }
 
     override public func drawRect(rect: CGRect) {
-        backgroundColor.setFill()
-        NSRectFill(rect)
+        if let color = backgroundColor {
+            color.setFill()
+            NSRectFill(rect)
+        }
     }
 }

@@ -7,30 +7,18 @@
 import Cocoa
 import PlotKit
 
-class ViewController: NSViewController {
+class SinCosViewController: NSViewController {
     let π = M_PI
     let sampleCount = 1024
     let font = NSFont(name: "Optima", size: 16)!
 
-    var plotView: PlotView!
+    @IBOutlet weak var plotView: PlotView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        createPlotView()
         createAxes()
         createSinePlot()
         createCosinePlot()
-    }
-
-    func createPlotView() {
-        plotView = PlotView()
-        view.addSubview(plotView)
-
-        plotView.translatesAutoresizingMaskIntoConstraints = false
-        plotView.leadingAnchor.constraintEqualToAnchor(view.leadingAnchor).active = true
-        plotView.trailingAnchor.constraintEqualToAnchor(view.trailingAnchor).active = true
-        plotView.topAnchor.constraintEqualToAnchor(view.topAnchor).active = true
-        plotView.bottomAnchor.constraintEqualToAnchor(view.bottomAnchor).active = true
     }
 
     func createAxes() {
