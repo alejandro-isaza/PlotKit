@@ -31,30 +31,10 @@ public class PlotView: NSView {
     }
 
     /// The x-range that fits all the point sets in the plot
-    public var fittingXInterval: ClosedInterval<Double> {
-        var interval: ClosedInterval<Double>?
-        for dataInterval in dataXIntervals {
-            if let int = interval {
-                interval = join(int, dataInterval)
-            } else {
-                interval = dataInterval
-            }
-        }
-        return interval ?? 0.0...1.0
-    }
+    public internal(set) var fittingXInterval: ClosedInterval<Double> = 0.0...1.0
 
     /// The y-range that fits all the point sets in the plot
-    public var fittingYInterval: ClosedInterval<Double> {
-        var interval: ClosedInterval<Double>?
-        for dataInterval in dataYIntervals {
-            if let int = interval {
-                interval = join(int, dataInterval)
-            } else {
-                interval = dataInterval
-            }
-        }
-        return interval ?? 0.0...1.0
-    }
+    public internal(set) var fittingYInterval: ClosedInterval<Double>  = 0.0...1.0
 
     public func addAxis(axis: Axis) {
         let view = AxisView(axis: axis)
@@ -97,8 +77,21 @@ public class PlotView: NSView {
             options: .AlignAllCenterX, metrics: metrics, views: views))
 
         dataViews.append(view)
+
         dataXIntervals.append(pointSet.xInterval)
+        if dataXIntervals.count == 1 {
+            fittingXInterval = pointSet.xInterval
+        } else {
+            fittingXInterval = join(fittingXInterval, pointSet.xInterval)
+        }
+
         dataYIntervals.append(pointSet.yInterval)
+        if dataYIntervals.count == 1 {
+            fittingYInterval = pointSet.yInterval
+        } else {
+            fittingYInterval = join(fittingYInterval, pointSet.yInterval)
+        }
+
         updateIntervals()
     }
 
@@ -123,8 +116,21 @@ public class PlotView: NSView {
             options: .AlignAllCenterX, metrics: metrics, views: views))
 
         dataViews.append(view)
+
         dataXIntervals.append(xInterval)
+        if dataXIntervals.count == 1 {
+            fittingXInterval = xInterval
+        } else {
+            fittingXInterval = join(fittingXInterval, xInterval)
+        }
+
         dataYIntervals.append(yInterval)
+        if dataYIntervals.count == 1 {
+            fittingYInterval = yInterval
+        } else {
+            fittingYInterval = join(fittingYInterval, yInterval)
+        }
+
         updateIntervals()
     }
 
@@ -133,6 +139,10 @@ public class PlotView: NSView {
             view.removeFromSuperview()
         }
         dataViews.removeAll()
+        dataXIntervals.removeAll()
+        dataYIntervals.removeAll()
+        fittingXInterval = 0...1
+        fittingYInterval = 0...1
     }
 
 
@@ -153,6 +163,8 @@ public class PlotView: NSView {
     }
 
     func updateIntervals() {
+        let xInterval = self.xInterval
+        let yInterval = self.yInterval
         for view in axisViews {
             view.xInterval = xInterval
             view.yInterval = yInterval
