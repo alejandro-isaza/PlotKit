@@ -20,4 +20,9 @@ public class DataView: NSView {
             needsDisplay = true
         }
     }
+
+    /// Return the data value at the specified location in the view or `nil` if there is no data point at that location
+    public func valueAt(location: NSPoint) -> Double? {
+        return nil
+    }
 }

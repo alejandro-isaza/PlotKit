@@ -96,4 +96,12 @@ public class HeatMapView: DataView {
         let image = CGBitmapContextCreateImage(context)
         CGContextDrawImage(NSGraphicsContext.currentContext()?.CGContext, rect, image)
     }
+
+    public override func valueAt(location: NSPoint) -> Double? {
+        let boundsXInterval = Double(bounds.minX)...Double(bounds.maxX)
+        let boundsYInterval = Double(bounds.minY)...Double(bounds.maxY)
+        let x = mapValue(Double(location.x), fromInterval: boundsXInterval, toInterval: xInterval)
+        let y = mapValue(Double(location.y), fromInterval: boundsYInterval, toInterval: yInterval)
+        return valueFunction?(x: x, y: y)
+    }
 }

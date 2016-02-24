@@ -35,6 +35,23 @@ public class PointSetView: DataView {
         self.yInterval = yInterval
     }
 
+    public override func valueAt(location: NSPoint) -> Double? {
+        let boundsXInterval = Double(bounds.minX)...Double(bounds.maxX)
+        let boundsYInterval = Double(bounds.minY)...Double(bounds.maxY)
+        var minDistance = CGFloat.max
+        var minValue = Double?()
+        for point in pointSet.points {
+            let x = CGFloat(mapValue(point.x, fromInterval: xInterval, toInterval: boundsXInterval))
+            let y = CGFloat(mapValue(point.y, fromInterval: yInterval, toInterval: boundsYInterval))
+            let d = hypot(location.x - x, location.y - y)
+            if d < 8 && d < minDistance {
+                minDistance = d
+                minValue = point.y
+            }
+        }
+        return minValue
+    }
+
     public override func drawRect(rect: CGRect) {
         let context = NSGraphicsContext.currentContext()?.CGContext
         CGContextSetLineWidth(context, pointSet.lineWidth)

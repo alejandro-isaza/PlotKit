@@ -15,6 +15,9 @@ public class PlotView: NSView {
     var dataViews = [DataView]()
     var dataXIntervals = [ClosedInterval<Double>]()
     var dataYIntervals = [ClosedInterval<Double>]()
+    var dataTitles = [String]()
+
+    var valueView: NSTextField
 
     /// If not `nil` the x values are limited to this interval, otherwise the x interval will fit all values
     public var fixedXInterval: ClosedInterval<Double>? {
@@ -40,7 +43,7 @@ public class PlotView: NSView {
         let view = AxisView(axis: axis)
         view.insets = insets
         view.translatesAutoresizingMaskIntoConstraints = false
-        addSubview(view, positioned: .Above, relativeTo: dataViews.last)
+        addSubview(view, positioned: .Below, relativeTo: valueView)
 
         let views = ["view": view]
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[view]|",
@@ -59,7 +62,7 @@ public class PlotView: NSView {
         axisViews.removeAll()
     }
 
-    public func addPointSet(pointSet: PointSet) {
+    public func addPointSet(pointSet: PointSet, title: String = "") {
         let view = PointSetView(pointSet: pointSet)
         view.translatesAutoresizingMaskIntoConstraints = false
         addSubview(view, positioned: .Below, relativeTo: axisViews.first)
@@ -77,6 +80,7 @@ public class PlotView: NSView {
             options: .AlignAllCenterX, metrics: metrics, views: views))
 
         dataViews.append(view)
+        dataTitles.append(title)
 
         dataXIntervals.append(pointSet.xInterval)
         if dataXIntervals.count == 1 {
@@ -95,7 +99,7 @@ public class PlotView: NSView {
         updateIntervals()
     }
 
-    public func addHeatMap(xInterval xInterval: ClosedInterval<Double>, yInterval: ClosedInterval<Double>, zInterval: ClosedInterval<Double>, valueFunction: HeatMapView.ValueFunction) {
+    public func addHeatMap(xInterval xInterval: ClosedInterval<Double>, yInterval: ClosedInterval<Double>, zInterval: ClosedInterval<Double>, valueFunction: HeatMapView.ValueFunction, title: String = "") {
         let view = HeatMapView(valueFunction: valueFunction)
         view.xInterval = xInterval
         view.yInterval = yInterval
@@ -116,6 +120,7 @@ public class PlotView: NSView {
             options: .AlignAllCenterX, metrics: metrics, views: views))
 
         dataViews.append(view)
+        dataTitles.append(title)
 
         dataXIntervals.append(xInterval)
         if dataXIntervals.count == 1 {
@@ -139,6 +144,7 @@ public class PlotView: NSView {
             view.removeFromSuperview()
         }
         dataViews.removeAll()
+        dataTitles.removeAll()
         dataXIntervals.removeAll()
         dataYIntervals.removeAll()
         fittingXInterval = 0...1
@@ -178,6 +184,28 @@ public class PlotView: NSView {
 
     // MARK: - NSView overrides
 
+    public override init(frame: NSRect) {
+        valueView = NSTextField()
+        super.init(frame: frame)
+        setupValueView()
+    }
+
+    public required init?(coder: NSCoder) {
+        valueView = NSTextField()
+        super.init(coder: coder)
+        setupValueView()
+    }
+
+    func setupValueView() {
+        valueView.textColor = NSColor.whiteColor()
+        valueView.backgroundColor = NSColor.blackColor()
+        valueView.editable = false
+        valueView.bordered = false
+        valueView.selectable = false
+        valueView.hidden = true
+        addSubview(valueView)
+    }
+
     public override var opaque: Bool {
         return backgroundColor != nil
     }
@@ -187,5 +215,35 @@ public class PlotView: NSView {
             color.setFill()
             NSRectFill(rect)
         }
+    }
+
+    // MARK: - Mouse handling
+
+    public override func updateTrackingAreas() {
+        var options = NSTrackingAreaOptions()
+        options.unionInPlace(.ActiveInActiveApp)
+        options.unionInPlace(.MouseMoved)
+        let trackingArea = NSTrackingArea(rect: bounds, options: options, owner: self, userInfo: nil)
+        addTrackingArea(trackingArea)
+    }
+
+    public override func mouseMoved(event: NSEvent) {
+        let location = convertPoint(event.locationInWindow, fromView: nil)
+
+        for (view, title) in zip(dataViews, dataTitles) {
+            let loc = view.convertPoint(location, fromView: self)
+            if let value = view.valueAt(loc) {
+                valueView.stringValue = "\(title) - \(value)"
+                valueView.hidden = false
+                valueView.sizeToFit()
+                var frame = valueView.frame
+                frame.origin.x = location.x - frame.width/2
+                frame.origin.y = location.y + 4
+                valueView.frame = frame
+                return
+            }
+        }
+
+        valueView.hidden = true
     }
 }
