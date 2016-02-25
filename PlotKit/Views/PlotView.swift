@@ -99,7 +99,7 @@ public class PlotView: NSView {
         updateIntervals()
     }
 
-    public func addHeatMap(xInterval xInterval: ClosedInterval<Double>, yInterval: ClosedInterval<Double>, zInterval: ClosedInterval<Double>, valueFunction: HeatMapView.ValueFunction, title: String = "") {
+    public func addHeatMap(xInterval xInterval: ClosedInterval<Double>, yInterval: ClosedInterval<Double>, zInterval: ClosedInterval<Double>, title: String = "", valueFunction: HeatMapView.ValueFunction) {
         let view = HeatMapView(valueFunction: valueFunction)
         view.xInterval = xInterval
         view.yInterval = yInterval
