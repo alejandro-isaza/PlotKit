@@ -78,8 +78,17 @@ internal class AxisView: NSView {
     // MARK: - Helper functions
 
     func drawVertical(rect: CGRect) {
-        let boundsXInterval = Double(bounds.minX + insets.left)...Double(bounds.maxX - insets.right)
-        let boundsYInterval = Double(bounds.minY + insets.bottom)...Double(bounds.maxY - insets.top)
+        var cappedInsets = insets
+        if insets.left + insets.right >= bounds.width {
+            cappedInsets.left = 0
+            cappedInsets.right = 0
+        }
+        if insets.top + insets.bottom >= bounds.height {
+            cappedInsets.top = 0
+            cappedInsets.bottom = 0
+        }
+        let boundsXInterval = Double(bounds.minX + cappedInsets.left)...Double(bounds.maxX - cappedInsets.right)
+        let boundsYInterval = Double(bounds.minY + cappedInsets.bottom)...Double(bounds.maxY - cappedInsets.top)
 
         let context = NSGraphicsContext.currentContext()?.CGContext
         let width = CGFloat(axis.lineWidth)
@@ -139,8 +148,17 @@ internal class AxisView: NSView {
     }
 
     func drawHorizontal(rect: CGRect) {
-        let boundsXInterval = Double(bounds.minX + insets.left)...Double(bounds.maxX - insets.right)
-        let boundsYInterval = Double(bounds.minY + insets.bottom)...Double(bounds.maxY - insets.top)
+        var cappedInsets = insets
+        if insets.left + insets.right >= bounds.width {
+            cappedInsets.left = 0
+            cappedInsets.right = 0
+        }
+        if insets.top + insets.bottom >= bounds.height {
+            cappedInsets.top = 0
+            cappedInsets.bottom = 0
+        }
+        let boundsXInterval = Double(bounds.minX + cappedInsets.left)...Double(bounds.maxX - cappedInsets.right)
+        let boundsYInterval = Double(bounds.minY + cappedInsets.bottom)...Double(bounds.maxY - cappedInsets.top)
 
         let context = NSGraphicsContext.currentContext()?.CGContext
         let width = bounds.width - insets.left - insets.right
