@@ -18,6 +18,7 @@ Plots made easy.
 
 To start using **PlotKit** quickly use the `plotPoints` helper function. It takes a list of points and returns a view that you can use in your app:
 
+
 ```swift
 import PlotKit
 
@@ -73,6 +74,12 @@ You can specify ticks in one of three ways:
  * `Distance(d)`: Say how far appart to place tick marks.
  * `List(l)`: Specify exactly the tick marks you want. This is the most flexible. You get to decide where to put the tick marks and also what their labels, line length and line thickness are.
 
+
+## IMP: For Carthage users
+
+If you're using Storyboards, don't forget to specify the module name for the PlotView like so
+
+![](https://cloud.githubusercontent.com/assets/167236/15224508/a5f79d96-182e-11e6-8a1c-00b197042470.png)
 
 ---
 
