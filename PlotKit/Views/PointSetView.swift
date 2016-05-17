@@ -35,18 +35,18 @@ public class PointSetView: DataView {
         self.yInterval = yInterval
     }
 
-    public override func valueAt(location: NSPoint) -> Double? {
+    public override func pointAt(location: NSPoint) -> Point? {
         var minDistance = CGFloat.max
-        var minValue = Double?()
+        var minPoint = Point?()
         for point in pointSet.points {
             let viewPoint = convertDataPointToView(point)
             let d = hypot(location.x - viewPoint.x, location.y - viewPoint.y)
             if d < 8 && d < minDistance {
                 minDistance = d
-                minValue = point.y
+                minPoint = point
             }
         }
-        return minValue
+        return minPoint
     }
 
     public override func drawRect(rect: CGRect) {

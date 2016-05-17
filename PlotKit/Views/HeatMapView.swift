@@ -97,8 +97,8 @@ public class HeatMapView: DataView {
         CGContextDrawImage(NSGraphicsContext.currentContext()?.CGContext, rect, image)
     }
 
-    public override func valueAt(location: NSPoint) -> Double? {
+    public override func pointAt(location: NSPoint) -> Point? {
         let point = convertViewPointToData(location)
-        return valueFunction?(x: point.x, y: point.y)
+        return Point(x: point.x, y: valueFunction?(x: point.x, y: point.y) ?? 0)
     }
 }

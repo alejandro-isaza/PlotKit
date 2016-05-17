@@ -259,8 +259,8 @@ public class PlotView: NSView {
 
         for (view, title) in zip(dataViews, dataTitles) {
             let loc = view.convertPoint(location, fromView: self)
-            if let value = view.valueAt(loc) {
-                valueView.stringValue = "\(title) - \(value)"
+            if let point = view.pointAt(loc) {
+                valueView.stringValue = String(format: "\(title) (%f, %f)", point.x, point.y)
                 valueView.hidden = false
                 valueView.sizeToFit()
                 var frame = valueView.frame
