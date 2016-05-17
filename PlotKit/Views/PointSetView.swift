@@ -36,14 +36,11 @@ public class PointSetView: DataView {
     }
 
     public override func valueAt(location: NSPoint) -> Double? {
-        let boundsXInterval = Double(bounds.minX)...Double(bounds.maxX)
-        let boundsYInterval = Double(bounds.minY)...Double(bounds.maxY)
         var minDistance = CGFloat.max
         var minValue = Double?()
         for point in pointSet.points {
-            let x = CGFloat(mapValue(point.x, fromInterval: xInterval, toInterval: boundsXInterval))
-            let y = CGFloat(mapValue(point.y, fromInterval: yInterval, toInterval: boundsYInterval))
-            let d = hypot(location.x - x, location.y - y)
+            let viewPoint = convertDataPointToView(point)
+            let d = hypot(location.x - viewPoint.x, location.y - viewPoint.y)
             if d < 8 && d < minDistance {
                 minDistance = d
                 minValue = point.y
@@ -78,11 +75,11 @@ public class PointSetView: DataView {
         }
 
         let first = pointSet.points.first!
-        let startPoint = convertToView(x: first.x, y: first.y)
+        let startPoint = convertDataPointToView(first)
         CGPathMoveToPoint(path, nil, startPoint.x, startPoint.y)
 
         for point in pointSet.points {
-            let point = convertToView(x: point.x, y: point.y)
+            let point = convertDataPointToView(point)
             CGPathAddLineToPoint(path, nil, point.x, point.y)
         }
 
@@ -96,16 +93,16 @@ public class PointSetView: DataView {
         }
 
         let first = pointSet.points.first!
-        let startPoint = convertToView(x: first.x, y: 0)
+        let startPoint = convertDataPointToView(Point(x: first.x, y: 0))
         CGPathMoveToPoint(path, nil, startPoint.x, startPoint.y)
 
         for point in pointSet.points {
-            let point = convertToView(x: point.x, y: point.y)
+            let point = convertDataPointToView(point)
             CGPathAddLineToPoint(path, nil, point.x, point.y)
         }
 
         let last = pointSet.points.last!
-        let endPoint = convertToView(x: last.x, y: 0)
+        let endPoint = convertDataPointToView(Point(x: last.x, y: 0))
         CGPathAddLineToPoint(path, nil, endPoint.x, endPoint.y)
         CGPathCloseSubpath(path)
 
@@ -125,7 +122,7 @@ public class PointSetView: DataView {
         }
 
         for point in pointSet.points {
-            let point = convertToView(x: point.x, y: point.y)
+            let point = convertDataPointToView(point)
             drawPoint(context, center: point)
         }
     }
@@ -183,16 +180,6 @@ public class PointSetView: DataView {
             width: CGFloat(side),
             height: CGFloat(side))
         CGContextFillRect(context, rect)
-    }
-
-    // MARK: - Helper functions
-
-    func convertToView(x x: Double, y: Double) -> CGPoint {
-        let boundsXInterval = Double(bounds.minX)...Double(bounds.maxX)
-        let boundsYInterval = Double(bounds.minY)...Double(bounds.maxY)
-        return CGPoint(
-            x: mapValue(x, fromInterval: xInterval, toInterval: boundsXInterval),
-            y: mapValue(y, fromInterval: yInterval, toInterval: boundsYInterval))
     }
 
     

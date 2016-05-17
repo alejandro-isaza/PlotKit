@@ -25,4 +25,24 @@ public class DataView: NSView {
     public func valueAt(location: NSPoint) -> Double? {
         return nil
     }
+
+    /// Converts a point from the data's coordinate system to the view's coordinate system
+    public func convertDataPointToView(dataPoint: Point) -> CGPoint {
+        let boundsXInterval = Double(bounds.minX)...Double(bounds.maxX)
+        let boundsYInterval = Double(bounds.minY)...Double(bounds.maxY)
+        return CGPoint(
+            x: mapValue(dataPoint.x, fromInterval: xInterval, toInterval: boundsXInterval),
+            y: mapValue(dataPoint.y, fromInterval: yInterval, toInterval: boundsYInterval)
+        )
+    }
+
+    /// Converts a point from the view's coordinate system to the data's coordinate system
+    public func convertViewPointToData(viewPoint: CGPoint) -> Point {
+        let boundsXInterval = Double(bounds.minX)...Double(bounds.maxX)
+        let boundsYInterval = Double(bounds.minY)...Double(bounds.maxY)
+        return Point(
+            x: mapValue(Double(viewPoint.x), fromInterval: boundsXInterval, toInterval: xInterval),
+            y: mapValue(Double(viewPoint.y), fromInterval: boundsYInterval, toInterval: yInterval)
+        )
+    }
 }

@@ -98,10 +98,7 @@ public class HeatMapView: DataView {
     }
 
     public override func valueAt(location: NSPoint) -> Double? {
-        let boundsXInterval = Double(bounds.minX)...Double(bounds.maxX)
-        let boundsYInterval = Double(bounds.minY)...Double(bounds.maxY)
-        let x = mapValue(Double(location.x), fromInterval: boundsXInterval, toInterval: xInterval)
-        let y = mapValue(Double(location.y), fromInterval: boundsYInterval, toInterval: yInterval)
-        return valueFunction?(x: x, y: y)
+        let point = convertViewPointToData(location)
+        return valueFunction?(x: point.x, y: point.y)
     }
 }
