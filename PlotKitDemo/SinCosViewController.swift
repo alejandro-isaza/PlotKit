@@ -33,8 +33,9 @@ class SinCosViewController: NSViewController {
         xaxis.labelAttributes = [NSFontAttributeName: font]
         plotView.addAxis(xaxis)
 
-        var yaxis = Axis(orientation: .Vertical, ticks: .Fit(4))
+        var yaxis = Axis(orientation: .Vertical, ticks: .Distance(0.5))
         yaxis.labelAttributes = [NSFontAttributeName: font]
+        yaxis.position = .Value(0)
         plotView.addAxis(yaxis)
     }
 
@@ -43,7 +44,7 @@ class SinCosViewController: NSViewController {
         let y = t.map({ sin($0) })
 
         let pointSet = PointSet(points: (0..<sampleCount).map{ Point(x: t[$0], y: y[$0]) })
-        plotView.addPointSet(pointSet)
+        plotView.addPointSet(pointSet, title: "sin")
     }
 
     func createCosinePlot() {
@@ -52,6 +53,6 @@ class SinCosViewController: NSViewController {
 
         let pointSet = PointSet(points: (0..<sampleCount).map{ Point(x: t[$0], y: y[$0]) })
         pointSet.lineColor = NSColor.blueColor()
-        plotView.addPointSet(pointSet)
+        plotView.addPointSet(pointSet, title: "cos")
     }
 }

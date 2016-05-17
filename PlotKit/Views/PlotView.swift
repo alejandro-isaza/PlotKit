@@ -168,9 +168,36 @@ public class PlotView: NSView {
         return fittingYInterval ?? 0...1
     }
 
+    /// The bounds of inner data views
+    var dataViewBounds: CGRect {
+        var bounds = self.bounds
+        bounds.origin.x += insets.left
+        bounds.origin.y += insets.top
+        bounds.size.width -= insets.left + insets.right
+        bounds.size.height -= insets.top + insets.bottom
+
+        if bounds.width <= 0 {
+            bounds.size.width = 1
+        }
+        if bounds.height <= 0 {
+            bounds.size.height = 1
+        }
+
+        return bounds
+    }
+
     func updateIntervals() {
-        let xInterval = self.xInterval
-        let yInterval = self.yInterval
+        let viewPadding = 0.5
+        let dataViewBounds = self.dataViewBounds
+        var xInterval = self.xInterval
+        var yInterval = self.yInterval
+
+        // Add padding to data views to avoid clipping things close to the edge
+        let dataXPadding = abs(xInterval.end - xInterval.start) * viewPadding / Double(dataViewBounds.width)
+        let dataYPadding = abs(yInterval.end - yInterval.start) * viewPadding / Double(dataViewBounds.height)
+        xInterval = xInterval.start - dataXPadding...xInterval.end + dataXPadding
+        yInterval = yInterval.start - dataYPadding...yInterval.end + dataYPadding
+
         for view in axisViews {
             view.xInterval = xInterval
             view.yInterval = yInterval
