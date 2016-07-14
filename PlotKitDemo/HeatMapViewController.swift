@@ -27,18 +27,18 @@ class HeatMapViewController: NSViewController {
             TickMark(π, label: "π"),
         ]
 
-        var xaxis = Axis(orientation: .Horizontal, ticks: .List(ticks))
-        xaxis.position = .Value(0)
+        var xaxis = Axis(orientation: .horizontal, ticks: .list(ticks))
+        xaxis.position = .value(0)
         xaxis.labelAttributes = [
             NSFontAttributeName: font,
-            NSForegroundColorAttributeName: NSColor.cyanColor()]
+            NSForegroundColorAttributeName: NSColor.cyan()]
         plotView.addAxis(xaxis)
 
-        var yaxis = Axis(orientation: .Vertical, ticks: .List(ticks))
-        yaxis.position = .Value(0)
+        var yaxis = Axis(orientation: .vertical, ticks: .list(ticks))
+        yaxis.position = .value(0)
         yaxis.labelAttributes = [
             NSFontAttributeName: font,
-            NSForegroundColorAttributeName: NSColor.cyanColor()]
+            NSForegroundColorAttributeName: NSColor.cyan()]
         plotView.addAxis(yaxis)
     }
 

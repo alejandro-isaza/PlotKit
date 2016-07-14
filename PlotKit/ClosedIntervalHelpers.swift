@@ -6,22 +6,22 @@
 
 import Foundation
 
-public func join<T>(lhs: ClosedInterval<T>, _ rhs: ClosedInterval<T>) -> ClosedInterval<T> {
-    return min(lhs.start, rhs.start)...max(lhs.end, rhs.end)
+public func join<T>(_ lhs: ClosedRange<T>, _ rhs: ClosedRange<T>) -> ClosedRange<T> {
+    return min(lhs.lowerBound, rhs.lowerBound)...max(lhs.upperBound, rhs.upperBound)
 }
 
-public func intersect<T>(lhs: ClosedInterval<T>, _ rhs: ClosedInterval<T>) -> ClosedInterval<T>? {
-    if lhs.end < rhs.start || rhs.end < lhs.start {
+public func intersect<T>(_ lhs: ClosedRange<T>, _ rhs: ClosedRange<T>) -> ClosedRange<T>? {
+    if lhs.upperBound < rhs.lowerBound || rhs.upperBound < lhs.lowerBound {
         return nil
     }
-    return max(lhs.start, rhs.start)...min(lhs.end, rhs.end)
+    return max(lhs.lowerBound, rhs.lowerBound)...min(lhs.upperBound, rhs.upperBound)
 }
 
 /**
     Map a value from one interval to another. For instance mapping 0.5 from the interval [0, 1] to the iterval
     [1, 100] yields 50.
 */
-public func mapValue(value: Double, fromInterval: ClosedInterval<Double>, toInterval: ClosedInterval<Double>) -> Double {
-    let parameter = (value - fromInterval.start) / (fromInterval.end - fromInterval.start)
-    return toInterval.start + (toInterval.end - toInterval.start) * parameter
+public func mapValue(_ value: Double, fromInterval: ClosedRange<Double>, toInterval: ClosedRange<Double>) -> Double {
+    let parameter = (value - fromInterval.lowerBound) / (fromInterval.upperBound - fromInterval.lowerBound)
+    return toInterval.lowerBound + (toInterval.upperBound - toInterval.lowerBound) * parameter
 }

@@ -18,7 +18,7 @@ public class HeatMapView: DataView {
     }
 
     /// The inverval of z values that the value function generates
-    public var zInterval: ClosedInterval<Double> {
+    public var zInterval: ClosedRange<Double> {
         didSet {
             needsDisplay = true
         }
@@ -50,7 +50,7 @@ public class HeatMapView: DataView {
         self.valueFunction = valueFunction
     }
 
-    public override func drawRect(rect: CGRect) {
+    public override func draw(_ rect: CGRect) {
         guard let valueFunction = valueFunction else {
             return
         }
@@ -61,11 +61,12 @@ public class HeatMapView: DataView {
         let bytesPerRow = pixelsWide * 4
 
         let colorSpace = CGColorSpaceCreateDeviceRGB()
-        let context = CGBitmapContextCreate(nil,
-            pixelsWide, pixelsHigh,
-            8, bytesPerRow, colorSpace,
-            CGImageAlphaInfo.PremultipliedLast.rawValue)
-        let data = UnsafeMutablePointer<UInt8>(CGBitmapContextGetData(context))
+        guard let context = CGContext(data: nil, width: pixelsWide, height: pixelsHigh, bitsPerComponent: 8, bytesPerRow: bytesPerRow, space: colorSpace, bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue) else {
+            return
+        }
+        guard let data = UnsafeMutablePointer<UInt8>(context.data) else {
+            return
+        }
 
         let repXInterval = 0.0...Double(pixelsWide)
         let repYInterval = 0.0...Double(pixelsHigh)
@@ -93,11 +94,11 @@ public class HeatMapView: DataView {
             }
         }
 
-        let image = CGBitmapContextCreateImage(context)
-        CGContextDrawImage(NSGraphicsContext.currentContext()?.CGContext, rect, image)
+        let image = context.makeImage()
+        NSGraphicsContext.current()?.cgContext.draw(in: rect, image: image!)
     }
 
-    public override func pointAt(location: NSPoint) -> Point? {
+    public override func pointAt(_ location: NSPoint) -> Point? {
         let point = convertViewPointToData(location)
         return Point(x: point.x, y: valueFunction?(x: point.x, y: point.y) ?? 0)
     }

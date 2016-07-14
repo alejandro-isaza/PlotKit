@@ -7,11 +7,11 @@
 import Foundation
 
 public enum PointType {
-    case None
-    case Ring(radius: Double)
-    case Disk(radius: Double)
-    case Square(side: Double)
-    case FilledSquare(side: Double)
+    case none
+    case ring(radius: Double)
+    case disk(radius: Double)
+    case square(side: Double)
+    case filledSquare(side: Double)
 }
 
 public struct Point {
@@ -31,23 +31,23 @@ public class PointSet {
         }
     }
     public var lineWidth = CGFloat(1.0)
-    public var lineColor: NSColor? = NSColor.redColor()
+    public var lineColor: NSColor? = NSColor.red()
     public var fillColor: NSColor? = nil
-    public var pointColor: NSColor? = NSColor.redColor()
-    public var pointType = PointType.None
+    public var pointColor: NSColor? = NSColor.red()
+    public var pointType = PointType.none
 
-    public var xInterval = ClosedInterval<Double>(0, 0)
-    public var yInterval = ClosedInterval<Double>(0, 0)
+    public var xInterval: ClosedRange = 0.0 ... 0.0
+    public var yInterval: ClosedRange = 0.0 ... 0.0
 
     public init() {
         self.points = []
     }
-    public init<T: SequenceType where T.Generator.Element == Point>(points: T) {
+    public init<T: Sequence where T.Iterator.Element == Point>(points: T) {
         self.points = [Point](points)
         updateIntervals()
     }
-    public init<T: SequenceType where T.Generator.Element == Double>(values: T) {
-        self.points = values.enumerate().map{ Point(x: Double($0.0), y: $0.1) }
+    public init<T: Sequence where T.Iterator.Element == Double>(values: T) {
+        self.points = values.enumerated().map{ Point(x: Double($0.0), y: $0.1) }
         updateIntervals()
     }
 

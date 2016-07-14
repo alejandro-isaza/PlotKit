@@ -7,7 +7,7 @@
 import Foundation
 
 public protocol ColorMap {
-    func colorForValue(value: Double) -> Color
+    func colorForValue(_ value: Double) -> Color
 }
 
 // Color map from mpl-colormaps by Nathaniel Smith & Stefan van der Walt https://github.com/BIDS/colormap
@@ -271,7 +271,7 @@ public class ViridisColorMap: ColorMap {
         ( 0.99324789,  0.90615657,  0.1439362 )
     ]
 
-    public func colorForValue(value: Double) -> Color {
+    public func colorForValue(_ value: Double) -> Color {
         var index = Int(round(value * Double(ViridisColorMap.colorMap.count - 1)))
         if index < 0 {
             index = 0
