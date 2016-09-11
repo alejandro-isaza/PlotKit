@@ -28,14 +28,14 @@ class SinCosViewController: NSViewController {
             TickMark(3*π/2, label: "3π/2"),
             TickMark(2*π, label: "2π"),
         ]
-        var xaxis = Axis(orientation: .Horizontal, ticks: .List(ticks))
-        xaxis.position = .Value(0)
+        var xaxis = Axis(orientation: .horizontal, ticks: .list(ticks))
+        xaxis.position = .value(0)
         xaxis.labelAttributes = [NSFontAttributeName: font]
         plotView.addAxis(xaxis)
 
-        var yaxis = Axis(orientation: .Vertical, ticks: .Distance(0.5))
+        var yaxis = Axis(orientation: .vertical, ticks: .distance(0.5))
         yaxis.labelAttributes = [NSFontAttributeName: font]
-        yaxis.position = .Value(0)
+        yaxis.position = .value(0)
         plotView.addAxis(yaxis)
     }
 
@@ -52,7 +52,7 @@ class SinCosViewController: NSViewController {
         let y = t.map({ cos($0) })
 
         let pointSet = PointSet(points: (0..<sampleCount).map{ Point(x: t[$0], y: y[$0]) })
-        pointSet.lineColor = NSColor.blueColor()
+        pointSet.lineColor = NSColor.blue
         plotView.addPointSet(pointSet, title: "cos")
     }
 }

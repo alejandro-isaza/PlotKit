@@ -7,8 +7,8 @@
 import Foundation
 
 /// PointSetView draws a discrete set of 2D points, optionally connecting them with lines. PointSetView does not draw axes or any other plot decorations, use a `PlotView` for that.
-public class PointSetView: DataView {
-    public var pointSet: PointSet {
+open class PointSetView: DataView {
+    open var pointSet: PointSet {
         didSet {
             needsDisplay = true
         }
@@ -27,7 +27,7 @@ public class PointSetView: DataView {
         self.yInterval = pointSet.yInterval
     }
 
-    public init(pointSet: PointSet, xInterval: ClosedInterval<Double>, yInterval: ClosedInterval<Double>) {
+    public init(pointSet: PointSet, xInterval: ClosedRange<Double>, yInterval: ClosedRange<Double>) {
         self.pointSet = pointSet
         super.init(frame: NSRect(x: 0, y: 0, width: 512, height: 512))
 
@@ -35,9 +35,9 @@ public class PointSetView: DataView {
         self.yInterval = yInterval
     }
 
-    public override func pointAt(location: NSPoint) -> Point? {
-        var minDistance = CGFloat.max
-        var minPoint = Point?()
+    open override func pointAt(_ location: NSPoint) -> Point? {
+        var minDistance = CGFloat.greatestFiniteMagnitude
+        var minPoint: Point? = nil
         for point in pointSet.points {
             let viewPoint = convertDataPointToView(point)
             let d = hypot(location.x - viewPoint.x, location.y - viewPoint.y)
@@ -49,62 +49,62 @@ public class PointSetView: DataView {
         return minPoint
     }
 
-    public override func drawRect(rect: CGRect) {
-        let context = NSGraphicsContext.currentContext()?.CGContext
-        CGContextSetLineWidth(context, pointSet.lineWidth)
+    open override func draw(_ rect: CGRect) {
+        let context = NSGraphicsContext.current()?.cgContext
+        context?.setLineWidth(pointSet.lineWidth)
 
         if let color = pointSet.lineColor {
             color.setStroke()
-            CGContextAddPath(context, path)
-            CGContextStrokePath(context)
+            context?.addPath(path)
+            context?.strokePath()
         }
 
         if let color = pointSet.fillColor {
             color.setFill()
-            CGContextAddPath(context, closedPath)
-            CGContextFillPath(context)
+            context?.addPath(closedPath)
+            context?.fillPath()
         }
 
         drawPoints(context)
     }
 
     var path: CGPath {
-        let path = CGPathCreateMutable()
+        let path = CGMutablePath()
         if pointSet.points.isEmpty {
             return path
         }
 
         let first = pointSet.points.first!
         let startPoint = convertDataPointToView(first)
-        CGPathMoveToPoint(path, nil, startPoint.x, startPoint.y)
+        path.move(to: startPoint)
 
         for point in pointSet.points {
             let point = convertDataPointToView(point)
-            CGPathAddLineToPoint(path, nil, point.x, point.y)
+            path.addLine(to: point)
         }
 
         return path
     }
 
     var closedPath: CGPath {
-        let path = CGPathCreateMutable()
+        let path = CGMutablePath()
         if pointSet.points.isEmpty {
             return path
         }
 
         let first = pointSet.points.first!
         let startPoint = convertDataPointToView(Point(x: first.x, y: 0))
-        CGPathMoveToPoint(path, nil, startPoint.x, startPoint.y)
+        path.move(to: startPoint)
 
         for point in pointSet.points {
             let point = convertDataPointToView(point)
-            CGPathAddLineToPoint(path, nil, point.x, point.y)
+            path.addLine(to: point)
         }
 
         let last = pointSet.points.last!
         let endPoint = convertDataPointToView(Point(x: last.x, y: 0))
-        CGPathAddLineToPoint(path, nil, endPoint.x, endPoint.y)
-        CGPathCloseSubpath(path)
+        path.addLine(to: endPoint)
+        path.closeSubpath()
 
         return path
     }
@@ -112,13 +112,13 @@ public class PointSetView: DataView {
 
     // MARK: - Point drawing
 
-    func drawPoints(context: CGContext?) {
+    func drawPoints(_ context: CGContext?) {
         if let color = pointSet.pointColor {
             color.setFill()
         } else if let color = pointSet.lineColor {
             color.setFill()
         } else {
-            NSColor.blackColor().setFill()
+            NSColor.black.setFill()
         }
 
         for point in pointSet.points {
@@ -127,59 +127,59 @@ public class PointSetView: DataView {
         }
     }
 
-    func drawPoint(context: CGContext?, center: CGPoint) {
+    func drawPoint(_ context: CGContext?, center: CGPoint) {
         switch pointSet.pointType {
-        case .None:
+        case .none:
             break
 
-        case .Ring(let radius):
+        case .ring(let radius):
             self.drawCircle(context, center: center, radius: radius)
 
-        case .Disk(let radius):
+        case .disk(let radius):
             self.drawDisk(context, center: center, radius: radius)
 
-        case .Square(let side):
+        case .square(let side):
             self.drawSquare(context, center: center, side: side)
 
-        case .FilledSquare(let side):
+        case .filledSquare(let side):
             self.drawFilledSquare(context, center: center, side: side)
         }
     }
 
-    func drawCircle(context: CGContextRef?, center: CGPoint, radius: Double) {
+    func drawCircle(_ context: CGContext?, center: CGPoint, radius: Double) {
         let rect = NSRect(
             x: center.x - CGFloat(radius),
             y: center.y - CGFloat(radius),
             width: 2 * CGFloat(radius),
             height: 2 * CGFloat(radius))
-        CGContextStrokeEllipseInRect(context, rect)
+        context?.strokeEllipse(in: rect)
     }
 
-    func drawDisk(context: CGContextRef?, center: CGPoint, radius: Double) {
+    func drawDisk(_ context: CGContext?, center: CGPoint, radius: Double) {
         let rect = NSRect(
             x: center.x - CGFloat(radius),
             y: center.y - CGFloat(radius),
             width: 2 * CGFloat(radius),
             height: 2 * CGFloat(radius))
-        CGContextFillEllipseInRect(context, rect)
+        context?.fillEllipse(in: rect)
     }
 
-    func drawSquare(context: CGContextRef?, center: CGPoint, side: Double) {
+    func drawSquare(_ context: CGContext?, center: CGPoint, side: Double) {
         let rect = NSRect(
             x: center.x - CGFloat(side/1),
             y: center.y - CGFloat(side/1),
             width: CGFloat(side),
             height: CGFloat(side))
-        CGContextStrokeRect(context, rect)
+        context?.stroke(rect)
     }
 
-    func drawFilledSquare(context: CGContextRef?, center: CGPoint, side: Double) {
+    func drawFilledSquare(_ context: CGContext?, center: CGPoint, side: Double) {
         let rect = NSRect(
             x: center.x - CGFloat(side/1),
             y: center.y - CGFloat(side/1),
             width: CGFloat(side),
             height: CGFloat(side))
-        CGContextFillRect(context, rect)
+        context?.fill(rect)
     }
 
     

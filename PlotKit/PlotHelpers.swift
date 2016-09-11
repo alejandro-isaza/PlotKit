@@ -7,21 +7,21 @@
 import Foundation
 
 /// Create a PlotView with default axes and the given y-values
-public func plotValues<T: SequenceType where T.Generator.Element == Double>(values: T, hTicks: Axis.Ticks = .Fit(5), vTicks: Axis.Ticks = .Fit(5)) -> PlotView {
+public func plotValues<T: Sequence>(_ values: T, hTicks: Axis.Ticks = .fit(5), vTicks: Axis.Ticks = .fit(5)) -> PlotView where T.Iterator.Element == Double {
     let plotSize = NSSize(width: 1024, height: 400)
-    let plot = PlotView(frame: NSRect(origin: CGPointZero, size: plotSize))
-    plot.addAxis(Axis(orientation: .Horizontal, ticks: hTicks))
-    plot.addAxis(Axis(orientation: .Vertical, ticks: vTicks))
+    let plot = PlotView(frame: NSRect(origin: CGPoint.zero, size: plotSize))
+    plot.addAxis(Axis(orientation: .horizontal, ticks: hTicks))
+    plot.addAxis(Axis(orientation: .vertical, ticks: vTicks))
     plot.addPointSet(PointSet(values: values))
     return plot
 }
 
 /// Create a PlotView with default axes and the given points
-public func plotPoints<T: SequenceType where T.Generator.Element == Point>(points: T, hTicks: Axis.Ticks = .Fit(5), vTicks: Axis.Ticks = .Fit(5)) -> PlotView {
+public func plotPoints<T: Sequence>(_ points: T, hTicks: Axis.Ticks = .fit(5), vTicks: Axis.Ticks = .fit(5)) -> PlotView where T.Iterator.Element == Point {
     let plotSize = NSSize(width: 1024, height: 400)
-    let plot = PlotView(frame: NSRect(origin: CGPointZero, size: plotSize))
-    plot.addAxis(Axis(orientation: .Horizontal, ticks: hTicks))
-    plot.addAxis(Axis(orientation: .Vertical, ticks: vTicks))
+    let plot = PlotView(frame: NSRect(origin: CGPoint.zero, size: plotSize))
+    plot.addAxis(Axis(orientation: .horizontal, ticks: hTicks))
+    plot.addAxis(Axis(orientation: .vertical, ticks: vTicks))
     plot.addPointSet(PointSet(points: points))
     return plot
 }

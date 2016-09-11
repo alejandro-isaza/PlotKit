@@ -1,5 +1,5 @@
 import PlotKit
-import XCPlayground
+import PlaygroundSupport
 
 let π = M_PI
 
@@ -12,8 +12,8 @@ let y = t.map({ sin($0) })
 
 //: ## Plotting
 //: We create a PlotView, configure the x and y axes, and then add a point set with the data
-let plotView1 = plotPoints((0..<count).map{ Point(x: t[$0], y: y[$0]) }, hTicks: .Fit(6), vTicks: .Fit(4))
-XCPlaygroundPage.currentPage.liveView = plotView1
+let plotView1 = plotPoints((0..<count).map{ Point(x: t[$0], y: y[$0]) }, hTicks: .fit(6), vTicks: .fit(4))
+PlaygroundPage.current.liveView = plotView1
 plotView1
 
 //: ## Custom tick marks
@@ -26,15 +26,15 @@ let ticks = [
     TickMark(3*π/2, label: "3π/2"),
     TickMark(2*π, label: "2π"),
 ]
-var xaxis2 = Axis(orientation: .Horizontal, ticks: .List(ticks))
-xaxis2.position = .Value(0)
+var xaxis2 = Axis(orientation: .horizontal, ticks: .list(ticks))
+xaxis2.position = .value(0)
 plotView2.addAxis(xaxis2)
 
-let yaxis2 = Axis(orientation: .Vertical, ticks: .Fit(4))
+let yaxis2 = Axis(orientation: .vertical, ticks: .fit(4))
 plotView2.addAxis(yaxis2)
 
 let pointSet2 = PointSet(points: (0..<count).map{ Point(x: t[$0], y: y[$0]) })
 plotView2.addPointSet(pointSet2)
 
-XCPlaygroundPage.currentPage.liveView = plotView2
+PlaygroundPage.current.liveView = plotView2
 plotView2

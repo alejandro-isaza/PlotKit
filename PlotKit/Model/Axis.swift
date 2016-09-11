@@ -8,58 +8,58 @@ import Foundation
 
 public struct Axis {
     public enum Orientation {
-        case Vertical
-        case Horizontal
+        case vertical
+        case horizontal
     }
 
     public enum Position {
-        case Start
-        case End
-        case Value(Double)
+        case start
+        case end
+        case value(Double)
     }
 
     public enum Ticks {
         /// A specific number of ticks evenly spaced
-        case Fit(Int)
+        case fit(Int)
 
         /// Ticks with a specific distance between them
-        case Distance(Double)
+        case distance(Double)
 
         /// A specific list of ticks
-        case List([TickMark])
+        case list([TickMark])
 
-        public func ticksInInterval(interval: ClosedInterval<Double>) -> [TickMark] {
+        public func ticksInInterval(_ interval: ClosedRange<Double>) -> [TickMark] {
             switch self {
-            case .Fit(let count):
-                let distance = (interval.end - interval.start) / Double(count)
-                var v = round(interval.start / distance) * distance
+            case .fit(let count):
+                let distance = (interval.upperBound - interval.lowerBound) / Double(count)
+                var v = round(interval.lowerBound / distance) * distance
                 var ticks = [TickMark]()
-                while v <= interval.end {
+                while v <= interval.upperBound {
                     ticks.append(TickMark(v))
                     v += distance
                 }
                 return ticks
 
-            case .Distance(let distance):
-                var v = round(interval.start / distance) * distance
+            case .distance(let distance):
+                var v = round(interval.lowerBound / distance) * distance
                 var ticks = [TickMark]()
-                while v <= interval.end {
+                while v <= interval.upperBound {
                     ticks.append(TickMark(v))
                     v += distance
                 }
                 return ticks
 
-            case .List(let ticks):
+            case .list(let ticks):
                 return ticks.filter{ interval.contains($0.value) }
             }
         }
     }
 
     public var orientation: Orientation
-    public var position = Position.Start
+    public var position = Position.start
     public var lineWidth = CGFloat(1.0)
-    public var ticks = Ticks.Fit(5)
-    public var color = NSColor.blackColor()
+    public var ticks = Ticks.fit(5)
+    public var color = NSColor.black
     public var labelAttributes: [String: AnyObject] = [NSFontAttributeName: NSFont(name: "Avenir Next", size: 10)!]
 
     public init(orientation: Orientation) {
