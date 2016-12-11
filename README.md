@@ -28,7 +28,7 @@ let t = (0..<count).map({ 2*M_PI * Double($0) / Double(count-1) })
 let y = t.map({ sin($0) })
 
 // Create a PlotView
-let plotView1 = plotPoints((0..<count).map{ Point(x: t[$0], y: y[$0]) }, hTicks: .Fit(6), vTicks: .Fit(4))
+let plotView1 = plotPoints((0..<count).map{ Point(x: t[$0], y: y[$0]) }, hTicks: .fit(6), vTicks: .fit(4))
 ```
 
 ### Multiple point sets
@@ -39,14 +39,14 @@ You can have multiple curves or scatter plots in the same `PlotView`.
 let plotView = PlotView()
 
 let pointSet1 = PointSet(values: values1)
-pointSet1.pointType = .Disk(radius: 2)
-pointSet2.pointColor = NSColor.redColor()
+pointSet1.pointType = .disk(radius: 2)
+pointSet2.pointColor = .red
 pointSet1.lineColor = nil
 plotView.addPointSet(pointSet1)
 
 let pointSet2 = PointSet(values: values2)
-pointSet2.pointType = .None
-pointSet2.lineColor = NSColor.blueColor()
+pointSet2.pointType = .none
+pointSet2.lineColor = .blue
 plotView.addPointSet(pointSet2)
 ```
 
@@ -58,21 +58,21 @@ You can customize your plot axes. You can have as many axis lines as you want on
 ```swift
 let plotView = PlotView()
 
-var xaxis = Axis(orientation: .Horizontal, ticks: .Fit(5))
-xaxis.position = .Value(0) 
-xaxis.color = NSColor.blueColor()
-xaxis.labelAttributes = [NSForegroundColorAttributeName: NSColor.blueColor()]
+var xaxis = Axis(orientation: .horizontal, ticks: .fit(5))
+xaxis.position = .value(0) 
+xaxis.color = .blue
+xaxis.labelAttributes = [NSForegroundColorAttributeName: NSColor.blue]
 plotView.addAxis(xaxis)
 
-var yaxis = Axis(orientation: .Vertical, ticks: .Distance(1))
+var yaxis = Axis(orientation: .vertical, ticks: .distance(1))
 yaxis.lineWidth = 2
 plotView.addAxis(yaxis)
 ```
 
 You can specify ticks in one of three ways:
- * `Fit(n)`: Say how many tick marks you want. **PlotKit** will space them evenly.
- * `Distance(d)`: Say how far appart to place tick marks.
- * `List(l)`: Specify exactly the tick marks you want. This is the most flexible. You get to decide where to put the tick marks and also what their labels, line length and line thickness are.
+ * `fit(n)`: Say how many tick marks you want. **PlotKit** will space them evenly.
+ * `distance(d)`: Say how far appart to place tick marks.
+ * `list(l)`: Specify exactly the tick marks you want. This is the most flexible. You get to decide where to put the tick marks and also what their labels, line length and line thickness are.
 
 
 ## Using PlotKit with Storyboards

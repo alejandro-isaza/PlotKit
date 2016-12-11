@@ -278,15 +278,15 @@
 				TargetAttributes = {
 					610B1B321BB740B800B64973 = {
 						CreatedOnToolsVersion = 7.0;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0810;
 					};
 					610B1B3C1BB740B800B64973 = {
 						CreatedOnToolsVersion = 7.0;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0810;
 					};
 					616B83921BDBF85E00B28545 = {
 						CreatedOnToolsVersion = 7.1;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0810;
 					};
 				};
 			};
